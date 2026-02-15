@@ -1,0 +1,81 @@
+return {
+    {
+        "yetone/avante.nvim",
+        build = vim.fn.has("win32") ~= 0
+            and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+            or "make",
+        event = "VeryLazy",
+        opts = {
+            provider = "openrouter",
+            providers = {
+                mistral = {
+                    __inherited_from = "openai",
+                    endpoint = "https://api.mistral.ai/v1/",
+                    api_key_name = "MISTRAL_API_KEY",
+                    model = "mistral-large-latest",
+                    timeout = 120000,
+                    extra_request_body = {
+                        temperature = 0.75,
+                        max_tokens = 32768,
+                    },
+                },
+                openrouter = {
+                    __inherited_from = "openai",
+                    endpoint = "https://openrouter.ai/api/v1/",
+                    api_key_name = "OPEN_ROUTER",
+                    model = "arcee-ai/trinity-large-preview:free",
+                    timeout = 120000,
+                    extra_request_body = {
+                        temperature = 0.75,
+                        max_tokens = 32768,
+                    },
+                },
+                claude = {
+                    endpoint = "https://api.anthropic.com",
+                    model = "claude-sonnet-4-20250514",
+                    timeout = 30000,
+                    extra_request_body = {
+                        temperature = 0.75,
+                        max_tokens = 20480,
+                    },
+                },
+                moonshot = {
+                    endpoint = "https://api.moonshot.ai/v1",
+                    model = "kimi-k2-0711-preview",
+                    timeout = 30000,
+                    extra_request_body = {
+                        temperature = 0.75,
+                        max_tokens = 32768,
+                    },
+                },
+            },
+        },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-mini/mini.pick",
+            "nvim-telescope/telescope.nvim",
+            "hrsh7th/nvim-cmp",
+            "ibhagwan/fzf-lua",
+            "stevearc/dressing.nvim",
+            "folke/snacks.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "zbirenbaum/copilot.lua",
+            {
+                "HakonHarnes/img-clip.nvim",
+                event = "VeryLazy",
+                opts = {
+                    default = {
+                        embed_image_as_base64 = false,
+                        drag_and_drop = { insert_mode = true },
+                    },
+                },
+            },
+            {
+                'MeanderingProgrammer/render-markdown.nvim',
+                opts = { file_types = { "markdown", "Avante" } },
+                ft = { "markdown", "Avante" },
+            },
+        },
+    },
+}

@@ -1,0 +1,5 @@
+sudo nano /etc/default/grub
+/boot/grub/themes
+sudo update-grub
+/etc/grub.d/06_random_theme
+
