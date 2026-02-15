@@ -1,0 +1,24 @@
+sudo du -ahd1 | sort -h
+```:cite[8]
+
+
+rm -rf
+
+
+
+# Очистка КОРНЕВОГО КАТАЛОГА
+sudo journalctl --vacuum-time=2weeks  # Оставить логи за 2 недели
+sudo apt clean                        # Очистка кеша пакетов apt
+sudo apt autoremove                   # Удаление ненужных зависимостей
+
+# Очистка старых логов в /var/log
+sudo find /var/log -type f -name "*.log.*" -delete
+sudo find /var/log -type f -name "*.gz" -delete
+
+
+#проверка установленных пакетов
+snap list
+
+docker system df
+
+docker builder prune -a -f
