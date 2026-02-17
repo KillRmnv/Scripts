@@ -1,0 +1,16 @@
+{
+  "tasks": {
+    "mvn-run": {
+      "name": "Maven Run",
+      "command": "mvn",
+      "args": ["compile", "exec:java", "-Dexec.mainClass=Main"],
+      "cwd": "${workspaceFolder}"
+    },
+    "gradle-run": {
+      "name": "Gradle Run",
+      "command": "./gradlew",
+      "args": ["run"],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}

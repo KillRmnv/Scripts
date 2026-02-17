@@ -1,0 +1,289 @@
+\documentclass[12pt,a4paper,oneside]{book} % oneside убирает пустые страницы
+
+% Кодировка и язык
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian]{babel}
+
+% Поля страницы
+\usepackage[top=2cm,bottom=2cm,left=2.5cm,right=2cm]{geometry}
+
+% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+
+% Графика и цвет
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% Гиперссылки
+\usepackage{hyperref}
+
+% Алгоритмы
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+% Листинги кода
+\usepackage{listings}
+
+% Таблицы
+\usepackage{booktabs}
+\usepackage{longtable}
+
+% Предметный указатель
+\usepackage{makeidx}
+\makeindex
+
+% Убираем пустые страни перед главами
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@endpart}{\vfil\newpage}{\relax}{}{}
+\patchcmd{\@endpart}{\newpage}{\relax}{}{}
+\makeatother
+
+% Определение окружений для теорем
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[chapter]
+\newtheorem{lemma}{Лемма}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Определение}[chapter]
+
+% Настройка листингов
+\lstset{
+    basicstyle=\ttfamily\small,
+    frame=single,
+    breaklines=true
+}
+
+% Информация о документе
+\title{\textbf{Полный шаблон \LaTeX\ документа}}
+\author{Иван Иванов \\ \texttt{ivan@example.com}}
+\date{\today}
+
+\begin{document}
+
+% Титульная страница без номера
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\Huge\bfseries Полный шаблон \LaTeX\ документа\par}
+    \vspace{2cm}
+    {\Large Иван Иванов\par}
+    \vspace{1cm}
+    {\large \texttt{ivan@example.com}\par}
+    \vspace{2cm}
+    {\large \today\par}
+    \vfill
+\end{titlepage}
+
+% Абстракт
+\begin{abstract}
+\noindent Это пример аннотации к документу. Здесь кратко описывается содержание работы.
+\end{abstract}
+
+% Оглавление на отдельной странице, но без лишних отступов
+\tableofcontents
+\clearpage
+
+\chapter{Введение}
+\label{chap:intro}
+
+\section{Первый раздел}
+\label{sec:first}
+
+\subsection{Подраздел первого уровня}
+\label{subsec:first}
+
+\subsubsection{Подраздел второго уровня}
+\label{subsubsec:first}
+
+Текст с \textbf{жирным}, \textit{курсивом}, \emph{акцентом} и \underline{подчёркиванием}.
+
+% Списки
+\begin{itemize}
+    \item Маркированный пункт 1
+    \item Маркированный пункт 2
+    \begin{itemize}
+        \item Вложенный пункт
+    \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+    \item Нумерованный пункт 1
+    \item Нумерованный пункт 2
+    \begin{enumerate}
+        \item Вложенный нумерованный
+    \end{enumerate}
+\end{enumerate}
+
+\begin{description}
+    \item[Термин] Описание термина
+    \item[Другой термин] Его описание
+\end{description}
+
+% Цитаты
+\begin{quote}
+    Короткая цитата без абзацного отступа.
+\end{quote}
+
+\begin{quotation}
+    Длинная цитата с абзацным отступом.
+    Включает несколько абзацев.
+\end{quotation}
+
+\begin{verse}
+    Строка 1 \\
+    Строка 2 \\
+    Строка 3
+\end{verse}
+
+% Математика
+Встроенная формула: $E = mc^2$ или \( a^2 + b^2 = c^2 \).
+
+Выключная формула:
+\[ \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi} \]
+
+Нумерованное уравнение:
+\begin{equation}
+    \label{eq:euler}
+    e^{i\pi} + 1 = 0
+\end{equation}
+
+Несколько выравненных уравнений:
+\begin{align}
+    a &= b + c \label{eq:first}\\
+    d &= e + f \label{eq:second}
+\end{align}
+
+Система уравнений:
+\begin{gather}
+    x + y = 2 \\
+    x - y = 0
+\end{gather}
+
+% Теоремы
+\begin{theorem}[Пифагора]
+    \label{thm:pythagoras}
+    В прямоугольном треугольнике квадрат гипотенузы равен сумме квадратов катетов.
+\end{theorem}
+
+\begin{proof}
+    Доказательство теоремы.
+\end{proof}
+
+\begin{lemma}
+    \label{lem:example}
+    Вспомогательное утверждение.
+\end{lemma}
+
+\begin{definition}
+    \label{def:example}
+    Определение нового понятия\index{ключевое понятие}.
+\end{definition}
+
+% Ссылки
+Ссылка на раздел: \ref{sec:first}.
+Ссылка на уравнение: \eqref{eq:euler}.
+Ссылка на теорему: \ref{thm:pythagoras}.
+
+% Гиперссылки
+\url{https://www.example.com}
+\href{https://www.example.com}{Текст ссылки}
+
+% Сноска
+Текст со сноской\footnote{Текст сноски внизу страницы}.
+
+% Цветной текст
+\textcolor{red}{Красный текст}, \textcolor{blue}{синий текст}.
+
+\chapter{Графика и таблицы}
+
+% Изображение-заглушка
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \rule{0.8\textwidth}{0.5\textwidth}
+        \caption{Пример рисунка (заглушка)}
+        \label{fig:example}
+    \end{minipage}
+\end{figure}
+
+% Таблица
+\begin{table}[htbp]
+    \centering
+    \caption{Пример таблицы}
+    \label{tab:example}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Столбец 1 & Столбец 2 & Столбец 3 \\
+        \hline
+        Данные 1 & Данные 2 & Данные 3 \\
+        Данные 4 & Данные 5 & Данные 6 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\chapter{Код и алгоритмы}
+
+% Листинг кода
+\begin{lstlisting}[language=Python, caption=Пример кода]
+def hello_world():
+    print("Hello, World!")
+    return 0
+\end{lstlisting}
+
+% Verbatim
+\begin{verbatim}
+Простой текст
+  с сохранением
+    форматирования
+\end{verbatim}
+
+% Алгоритм
+\begin{algorithm}
+    \caption{Пример алгоритма}
+    \label{alg:example}
+    \begin{algorithmic}[1]
+        \REQUIRE $n \geq 0$
+        \ENSURE $y = x^n$
+        \STATE $y \leftarrow 1$
+        \WHILE{$N \neq 0$}
+            \STATE $y \leftarrow y \times X$
+            \STATE $N \leftarrow N - 1$
+        \ENDWHILE
+    \end{algorithmic}
+\end{algorithm}
+
+\chapter{Многоязычность}
+
+\selectlanguage{english}
+This is English text.
+
+\selectlanguage{russian}
+Это русский текст.
+
+\part{Часть документа}
+
+\chapter{Глава в части}
+
+\appendix
+
+\chapter{Приложение А}
+\label{app:first}
+
+Текст приложения. Нумерация разделов теперь буквенная.
+
+\section{Раздел в приложении}
+
+\begin{thebibliography}{99}
+    \bibitem{knuth1984}
+    Кнут, Д. Всё про \TeX / Д. Кнут. --- М. : Мир, 1993. --- 592 с.
+    
+    \bibitem{lamport1994}
+    Lamport, L. \LaTeX: A Document Preparation System / L. Lamport. --- 2nd ed. --- Addison-Wesley, 1994.
+\end{thebibliography}
+
+% Предметный указатель (опционально)
+% \printindex
+
+\end{document}
