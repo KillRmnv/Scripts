@@ -20,7 +20,7 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt update
 sudo apt install -y python3.12 python3.12-venv
 
-# 4. JDK (21 по умолчанию, как мы обсуждали)
+# 4. JDK 
 sudo apt install -y openjdk-25-jdk openjdk-25-source
 
 # 5. POSTGRES
@@ -75,12 +75,6 @@ sudo apt install -y texstudio
 # 12. OLLAMA
 curl -fsSL https://ollama.com/install.sh | sh
 
-# 13. ANYTHINNG LLM (Desktop версия)
-# Обычно поставляется как AppImage
-wget https://s3.us-west-1.amazonaws.com/files.useanything.com/desktop/AnythingLLMDesktop.AppImage
-chmod +x AnythingLLMDesktop.AppImage
-mkdir -p ~/Applications
-mv AnythingLLMDesktop.AppImage ~/Applications/
 
 # 14. Hugging Face CLI & OpenCode
 pip install -U "huggingface_hub[cli]"
@@ -92,4 +86,6 @@ curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/in
 
 curl -LsSf https://mistral.ai/vibe/install.sh | bash
 
-curl -LsSf https://mistral.ai/vibe/install.sh | bash
+
+
+
