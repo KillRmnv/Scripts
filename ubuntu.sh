@@ -52,10 +52,6 @@ rm neovide-linux-x86_64.tar.gz
 # 7. ZED EDITOR
 curl -f https://zed.dev/install.sh | sh
 
-# 8. GOOGLE CHROME
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install -y ./google-chrome-stable_current_amd64.deb
-rm google-chrome-stable_current_amd64.deb
 
 # 9. OBSIDIAN (AppImage или Deb)
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/obsidian_1.5.3_amd64.deb
@@ -86,6 +82,33 @@ curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/in
 
 curl -LsSf https://mistral.ai/vibe/install.sh | bash
 
+# OpenBLAS
+sudo apt update
+sudo apt install libopenblas-dev libopenblas0
+
+#Rust Cargo
+sudo apt update
+sudo apt install -y build-essential curl pkg-config libssl-dev
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+source $HOME/.cargo/env
+
+rustup update
+
+git clone https://github.com/AlexsJones/llmfit.git
+cd llmfit
+cargo build --release
+# binary is at target/release/llmfit
+
+git clone https://github.com/arimxyer/models
+cd models
+cargo build --release
+./target/release/models
 
 
+npm install -g @mariozechner/pi-coding-agent
 
+curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | bash
+
+npm install -g cline

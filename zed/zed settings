@@ -20,10 +20,6 @@
     },
   },
   "edit_predictions": {
-    "ollama": {
-      "max_output_tokens": 150,
-      "model": "qwen2.5-coder:3b",
-    },
     "provider": "ollama",
   },
   "agent_servers": {
