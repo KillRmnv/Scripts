@@ -175,3 +175,32 @@ sudo apt install fzf
 
 #tldr
 pipx install tldr
+
+
+#brew
+# Официальный скрипт установки
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# Добавить brew в PATH (скрипт подскажет точную команду)
+# Обычно для Linux это:
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Проверка
+brew --version
+
+
+#lazygit
+brew install lazygit
+
+
+#posting
+# quickly install uv on MacOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# install Posting (will also quickly install Python 3.13 if needed)
+uv tool install --python 3.13 posting
+
+#oxker
+cargo install oxker
+
+
