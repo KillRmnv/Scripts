@@ -1,0 +1,19 @@
+ theme = catppuccin-mocha.conf
+
+window-height = 34
+window-width = 125
+background-opacity = 0.80
+background-blur-radius = 30
+cursor-style = block
+clipboard-trim-trailing-spaces = true
+# font-family = MesloLGS NF
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+
+# No ligatures
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
+
+ window-decoration = false
+# background = 000000

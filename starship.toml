@@ -1,0 +1,63 @@
+# ============================================
+# 🎨 ОБЩИЙ СТИЛЬ
+# ============================================
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$nodejs\
+$docker_context\
+$character"""
+
+add_newline = true
+command_timeout = 500
+
+# Заполнитель для выравнивания
+[fill]
+symbol = " "
+
+# ============================================
+# 📁 ПУТЬ (Directory) — ЯРКИЙ И ЦВЕТНОЙ
+# ============================================
+[directory]
+style = "bold bright-blue"
+format = "[$path ]($style)"
+truncation_length = 3
+truncate_to_repo = true
+
+
+# ============================================
+# 🌿 GIT
+# ============================================
+[git_branch]
+style = "bold bright-purple"
+format = "on [$symbol$branch ]($style)"
+
+[git_status]
+style = "bold red"
+format = '([$all_status$ahead_behind]($style) )'
+
+# ============================================
+# 🐍 ЯЗЫКИ И ИНСТРУМЕНТЫ
+# ============================================
+[python]
+style = "bold yellow"
+format = '[ ($version )]($style)'
+
+[nodejs]
+style = "bold green"
+format = '[ ($version )]($style)'
+
+[docker_context]
+style = "bold blue"
+format = '[🐳 ($context )]($style)'
+
+# ============================================
+# ❯ СИМВОЛ КОМАНДЫ
+# ============================================
+[character]
+success_symbol = "[❯](bold bright-green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold yellow)"
