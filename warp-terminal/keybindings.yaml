@@ -1,0 +1,9 @@
+---
+"editor_view:cut_word_left": none
+"editor_view:delete": ctrl-alt-shift-D
+"workspace:close_panel": ctrl-w
+"code_view:close_saved_tabs": none
+"pane_group:add_right": ctrl-d
+"pane_group:add_down": ctrl-shift-D
+"code_view:close_all_tabs": none
+"workspace:close_active_tab": none

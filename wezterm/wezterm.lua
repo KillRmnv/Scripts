@@ -1,21 +1,21 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
-
+config.window_background_opacity = 0.85 
 config.font = wezterm.font('JetBrainsMono Nerd Font', {weight='Regular'})
-config.font_size = 13.0
+config.font_size = 15.0
 config.harfbuzz_features = {'calt', 'clig', 'liga'}
 config.color_scheme = 'Catppuccin Mocha'
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true  -- ✅ Скрывать tab, если 1 вкладка
 config.scrollback_lines = 10000
 
-config.window_background_opacity = 0.85
 
 -- ✅ Позволяем вкладкам занимать как можно больше места
 config.tab_max_width = 9999
 
 -- ✅ Отключаем "модные" (fancy) вкладки для лучшего отображения сплошной заливки
 config.use_fancy_tab_bar = false
+
 
 config.window_frame = {
   active_titlebar_bg = '#1e1e2e',
@@ -66,5 +66,27 @@ wezterm.on('format-tab-title', function(tab, tabs, panes, config, hover, max_wid
     { Text = title },
   }
 end)
+
+config.keys ={
+    {
+    key = 'w',
+    mods = 'CTRL',
+    action = wezterm.action.CloseCurrentPane { confirm = false },
+  },
+  {
+    key = 'd',
+    mods = 'CTRL',
+    action=wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain'},
+
+  },
+  {
+    key = 'd',
+    mods = 'CTRL|SHIFT',
+    action=wezterm.action.SplitVertical { domain = 'CurrentPaneDomain'},
+
+  },
+
+
+}
 
 return config

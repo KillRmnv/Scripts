@@ -7,6 +7,9 @@ sudo apt install -y curl wget gpg software-properties-common apt-transport-https
 # 1. GIT, C++, PIP, MAVEN, GRADLE
 sudo apt install -y git build-essential python3-pip maven gradle
 
+# zev
+pip install zev
+
 # 2. DOCKER
 if ! command -v docker &> /dev/null; then
     curl -fsSL https://get.docker.com -o get-docker.sh
@@ -54,9 +57,9 @@ curl -f https://zed.dev/install.sh | sh
 
 
 # 9. OBSIDIAN (AppImage или Deb)
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/obsidian_1.5.3_amd64.deb
+## wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/obsidian_1.5.3_amd64.deb
 sudo apt install -y ./obsidian_1.5.3_amd64.deb
-rm obsidian_1.5.3_amd64.deb
+## rm obsidian_1.5.3_amd64.deb
 
 # 10. WIRESHARK
 sudo apt install -y wireshark
@@ -137,37 +140,12 @@ bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
  #fd
  sudo apt install fd-find
  
- #GH
- (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) \
-	&& sudo mkdir -p -m 755 /etc/apt/keyrings \
-	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
-	&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-	&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-	&& sudo mkdir -p -m 755 /etc/apt/sources.list.d \
-	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-	&& sudo apt update \
-	&& sudo apt install gh -y
-	
+
 #pass	
  sudo apt-get install pass
  
  
  
- 
-#jq or go to github page and check for latest
-mkdir -p ~/bin
-wget https://github.com/jqlang/jq/releases/download/jq-1.8.1/jq-linux-amd64 -O ~/bin/jq
-chmod +x ~/bin/jq
-~/bin/jq --version
-# Ожидаемый вывод: jq-1.8.1
-# Проверьте, есть ли ~/bin уже в PATH
-echo $PATH | grep -o "$HOME/bin"
-
-# Если нет — добавьте в ~/.bashrc или ~/.zshrc
-echo 'export PATH="$HOME/bin:$PATH"' >> ~/.bashrc
-
-# Примените изменения
-source ~/.bashrc
 
 
 #fzf
@@ -176,17 +154,6 @@ sudo apt install fzf
 #tldr
 pipx install tldr
 
-
-#brew
-# Официальный скрипт установки
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# Добавить brew в PATH (скрипт подскажет точную команду)
-# Обычно для Linux это:
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# Проверка
-brew --version
 
 
 #lazygit
@@ -199,6 +166,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # install Posting (will also quickly install Python 3.13 if needed)
 uv tool install --python 3.13 posting
+
+
 
 #oxker
 cargo install oxker
@@ -223,35 +192,7 @@ fi
 
 
 
-
-
-# Импорт GPG-ключа и добавление репозитория [[3]]
-curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
-echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg
-
-sudo apt update
-sudo apt install -y wezterm
-
-# Базовый конфиг
-mkdir -p ~/.config/wezterm
-cat > ~/.config/wezterm/wezterm.lua << 'EOF'
-local wezterm = require 'wezterm'
-local config = wezterm.config_builder()
-config.font = wezterm.font('JetBrainsMono Nerd Font', {weight='Regular'})
-config.font_size = 13.0
-config.harfbuzz_features = {'calt', 'clig', 'liga'}
-config.color_scheme = 'Catppuccin Mocha'
-config.enable_tab_bar = true
-config.scrollback_lines = 10000
-config.keys = {
-  {key="g", mods="CTRL", action=wezterm.action.SpawnCommandInNewTab{args={'lazygit'}}},
-  {key="f", mods="CTRL", action=wezterm.action.SpawnCommandInNewPane{args={'fzf'}}},
-}
-return config
-EOF
-echo "✅ WezTerm установлен"
-
+curl -sS https://starship.rs/install.sh | sh
 
 sudo apt update
 sudo apt install -y libfuse2 libgtk-4-1 libadwaita-1-0 libvte-2.91-0
@@ -262,6 +203,13 @@ snap install ghostty --classic
 
 #warp https://www.warp.dev/download
 
-curl -sS https://starship.rs/install.sh | sh
+
+#kaggle
+pip install kaggle
+
+
+sudo apt install gnome-shell-extension-manager
+
+
 
 
