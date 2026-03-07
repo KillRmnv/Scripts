@@ -23,12 +23,11 @@ alias grep='grep --color=auto'
 # ───────────────────────────────────────────────────────────
 # 📦 Кастомные алиасы
 # ───────────────────────────────────────────────────────────
-alias oencode='~/bin/oencode'
-alias qwen='~/bin/qwen'
-alias vibe='~/bin/vibe'
-alias zed='~/bin/zed'
-alias cleanup='~/bin/cleanup'
-alias find_dirs='~/bin/find_dirs'
+alias oencode='~/.opencode/bin/opencode'
+alias qwen='~/.npm-global/bin/qwen'
+alias vibe='~/.local/bin/vibe'
+alias zed='~/.local/bin/zed'
+
 
 # ───────────────────────────────────────────────────────────
 # 🔧 Функция alert
@@ -52,16 +51,14 @@ if test -f "$HOME/.nvm/nvm.sh"
 end
 
 # 🔹 Maven
-set -gx MAVEN_HOME /home/kirillromanoff/apache-maven-3.9.9-bin/apache-maven-3.9.9
+set -gx MAVEN_HOME ~/apache-maven-3.9.9-bin/apache-maven-3.9.9
 
 # 🔹 JAVA_HOME
 set -gx JAVA_HOME /usr/lib/jvm/java-21-openjdk-amd64
 
-# 🔹 LD_LIBRARY_PATH
-fish_add_path -g --path /home/kirillromanoff/University/0.10/ostis-example-app/install/sc-machine-0.10.1/build/lib
 
 # 🔹 Opencode / LM Studio
-fish_add_path -g /home/kirillromanoff/.opencode/bin /home/kirillromanoff/.lmstudio/bin
+fish_add_path -g ~/.opencode/bin ~/.lmstudio/bin
 
 # 🔹 JetBrains VM Options — ИСПРАВЛЕНО
 if test -f "$HOME/.jetbrains.vmoptions.sh"
@@ -84,7 +81,7 @@ fish_add_path -g $HOME/bin $HOME/.local/bin
 # ───────────────────────────────────────────────────────────
 # ⭐ Starship (раскомментируйте, если используете его)
 # ───────────────────────────────────────────────────────────
- starship init fish | source
+starship init fish | source
 
 # ───────────────────────────────────────────────────────────
 # 🎨 Цвета подсветки (Catppuccin Mocha)

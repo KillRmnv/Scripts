@@ -32,23 +32,6 @@
     "updatedAt": "2025-01-26",
     "enabled": true
   },
-  "5941aefd-67b0-453d-9b62-9071a31cbb0d": {
-    "id": "5941aefd-67b0-453d-9b62-9071a31cbb0d",
-    "name": "Smaller Compact Mode",
-    "description": "Reduce the height of the compact sidebar.",
-    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/5941aefd-67b0-453d-9b62-9071a31cbb0d/chrome.css",
-    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/5941aefd-67b0-453d-9b62-9071a31cbb0d/readme.md",
-    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/5941aefd-67b0-453d-9b62-9071a31cbb0d/image.png",
-    "author": "n7itro",
-    "preferences": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/5941aefd-67b0-453d-9b62-9071a31cbb0d/preferences.json",
-    "version": "1.0.5",
-    "tags": [
-      "tabs"
-    ],
-    "createdAt": "2024-08-31",
-    "updatedAt": "2025-10-29",
-    "enabled": true
-  },
   "ae7868dc-1fa1-469e-8b89-a5edf7ab1f24": {
     "id": "ae7868dc-1fa1-469e-8b89-a5edf7ab1f24",
     "name": "Load Bar",
@@ -62,21 +45,6 @@
     "tags": [],
     "createdAt": "2024-12-21",
     "updatedAt": "2025-05-10",
-    "enabled": true
-  },
-  "c01d3e22-1cee-45c1-a25e-53c0f180eea8": {
-    "id": "c01d3e22-1cee-45c1-a25e-53c0f180eea8",
-    "name": "Ghost Tabs",
-    "description": "Makes unloaded tabs & folders appear ghost-like by making them grayscale and transparent.",
-    "homepage": "https://github.com/Seismix/zen-ghost-tabs",
-    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/c01d3e22-1cee-45c1-a25e-53c0f180eea8/chrome.css",
-    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/c01d3e22-1cee-45c1-a25e-53c0f180eea8/readme.md",
-    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/c01d3e22-1cee-45c1-a25e-53c0f180eea8/image.png",
-    "author": "Seismix",
-    "version": "1.0.0",
-    "tags": [],
-    "createdAt": "2025-10-02",
-    "updatedAt": "2025-10-02",
     "enabled": true
   },
   "ad97bb70-0066-4e42-9b5f-173a5e42c6fc": {
@@ -110,6 +78,22 @@
     "tags": [],
     "createdAt": "2025-10-21",
     "updatedAt": "2025-11-16",
+    "enabled": true
+  },
+  "8039de3b-72e1-41ea-83b3-5077cf0f98d1": {
+    "id": "8039de3b-72e1-41ea-83b3-5077cf0f98d1",
+    "name": "Trackpad Animation",
+    "description": "adds backward and forward animation for trackpad gesture",
+    "homepage": "https://github.com/Fury7425/zen-trackpad-gesture-animation",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/8039de3b-72e1-41ea-83b3-5077cf0f98d1/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/8039de3b-72e1-41ea-83b3-5077cf0f98d1/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/8039de3b-72e1-41ea-83b3-5077cf0f98d1/image.png",
+    "preferences": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/8039de3b-72e1-41ea-83b3-5077cf0f98d1/preferences.json",
+    "author": "Fury7425",
+    "version": "1.2.1",
+    "tags": [],
+    "createdAt": "2025-04-08",
+    "updatedAt": "2025-05-21",
     "enabled": true
   },
   "f4866f39-cfd6-4498-ab92-54213b8279dc": {
@@ -173,36 +157,6 @@
     ],
     "createdAt": "2024-11-09",
     "updatedAt": "2025-07-15",
-    "enabled": true
-  },
-  "599a1599-e6ab-4749-ab22-de533860de2c": {
-    "id": "599a1599-e6ab-4749-ab22-de533860de2c",
-    "name": "Pimp your PiP",
-    "description": "Collection of tweaks and upgrades to PiP",
-    "homepage": "",
-    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/599a1599-e6ab-4749-ab22-de533860de2c/chrome.css",
-    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/599a1599-e6ab-4749-ab22-de533860de2c/readme.md",
-    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/599a1599-e6ab-4749-ab22-de533860de2c/image.png",
-    "author": "shldk",
-    "version": "1.0.0",
-    "tags": [],
-    "createdAt": "2025-02-07",
-    "updatedAt": "2025-05-13",
-    "enabled": true
-  },
-  "87196c08-8ca1-4848-b13b-7ea41ee830e7": {
-    "id": "87196c08-8ca1-4848-b13b-7ea41ee830e7",
-    "name": "Tab Preview Enhanced",
-    "description": "Enhanced tab preview, respecting user background color and padding",
-    "homepage": "https://github.com/Kaedriz/ZenMods/tree/main/TabPreviewEnhanced",
-    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/87196c08-8ca1-4848-b13b-7ea41ee830e7/chrome.css",
-    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/87196c08-8ca1-4848-b13b-7ea41ee830e7/readme.md",
-    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/87196c08-8ca1-4848-b13b-7ea41ee830e7/image.png",
-    "author": "Kaedriz",
-    "version": "1.1.0",
-    "tags": [],
-    "createdAt": "2024-12-20",
-    "updatedAt": "2025-02-07",
     "enabled": true
   }
 }

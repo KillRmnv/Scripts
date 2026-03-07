@@ -6,7 +6,8 @@ sudo apt install -y curl wget gpg software-properties-common apt-transport-https
 
 # 1. GIT, C++, PIP, MAVEN, GRADLE
 sudo apt install -y git build-essential python3-pip maven gradle
-
+python3 -m venv myenv
+source myenv/bin/activate
 # zev
 pip install zev
 
@@ -23,19 +24,19 @@ sudo add-apt-repository ppa:deadsnakes/ppa -y
 sudo apt update
 sudo apt install -y python3.12 python3.12-venv
 
-# 4. JDK 
+# 4. JDK
 sudo apt install -y openjdk-25-jdk openjdk-25-source
 
 # 5. POSTGRES
 sudo apt install -y postgresql postgresql-contrib
 # 16. NODE.JS (LTS версия)
 # Устанавливаем официальный скрипт настройки репозитория NodeSource
-curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
 sudo apt install -y nodejs
 
 # 17. PGADMIN 4 (Desktop версия)
 # Добавляем публичный ключ репозитория
-curl -fsSL https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
+sudo curl -fsSL https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo gpg --dearmor -o /usr/share/keyrings/packages-pgadmin-org.gpg
 # Добавляем сам репозиторий
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/packages-pgadmin-org.gpg] https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list'
 sudo apt update
@@ -53,39 +54,37 @@ sudo mv neovide /usr/local/bin/
 rm neovide-linux-x86_64.tar.gz
 
 # 7. ZED EDITOR
-curl -f https://zed.dev/install.sh | sh
+sudo curl -f https://zed.dev/install.sh | sh
 
 
 # 9. OBSIDIAN (AppImage или Deb)
-## wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/obsidian_1.5.3_amd64.deb
+ wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/obsidian_1.5.3_amd64.deb
 sudo apt install -y ./obsidian_1.5.3_amd64.deb
-## rm obsidian_1.5.3_amd64.deb
+ rm obsidian_1.5.3_amd64.deb
 
 # 10. WIRESHARK
 sudo apt install -y wireshark
 # Настройка прав для непривилегированного пользователя
-sudo dpkg-reconfigure wireshark-common 
+sudo dpkg-reconfigure wireshark-common
 
 # 11. TeXStudio
 sudo add-apt-repository ppa:sunderme/texstudio -y
 sudo apt update
 sudo apt install -y texstudio
 
-# 12. OLLAMA
-curl -fsSL https://ollama.com/install.sh | sh
 
 
 # 14. Hugging Face CLI & OpenCode
 pip install -U "huggingface_hub[cli]"
 # Для opencode обычно используется специфичный скрипт или pip, если это клиент
 
-curl -fsSL https://opencode.ai/install | bash
+sudo curl -fsSL https://opencode.ai/install | bash
 
 #qwen code
-curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen.sh | bash
+sudo curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen.sh | bash
 
 #mistral vibe
-curl -LsSf https://mistral.ai/vibe/install.sh | bash
+sudo curl -LsSf https://mistral.ai/vibe/install.sh | bash
 
 # OpenBLAS
 sudo apt update
@@ -101,12 +100,6 @@ source $HOME/.cargo/env
 
 rustup update
 
-#llmfit
-git clone https://github.com/AlexsJones/llmfit.git
-cd llmfit
-cargo build --release
-# binary is at target/release/llmfit
-
 
 #models
 git clone https://github.com/arimxyer/models
@@ -114,21 +107,15 @@ cd models
 cargo build --release
 ./target/release/models
 
-#Pi agent
-npm install -g @mariozechner/pi-coding-agent
-
-#Goose
-curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | bash
-
-#Cline
-npm install -g cline
 
 #also install Lm Studio via Browser https://lmstudio.ai/
 
 #btop https://github.com/aristocratos/btop
-
+brew install btop
 #tree
 sudo apt install tree
+#batcat
+sudo apt install bat
 
 
 #superfile
@@ -136,20 +123,21 @@ bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
 
 #ripgrep
  sudo apt-get install ripgrep
- 
+
  #fd
  sudo apt install fd-find
- 
 
-#pass	
+
+#pass
  sudo apt-get install pass
- 
- 
- 
+
+
+
 
 
 #fzf
 sudo apt install fzf
+sudo apt install pipx
 
 #tldr
 pipx install tldr
@@ -162,7 +150,7 @@ brew install lazygit
 
 #posting
 # quickly install uv on MacOS/Linux
-curl -LsSf https://astral.sh/uv/install.sh | sh
+sudo curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # install Posting (will also quickly install Python 3.13 if needed)
 uv tool install --python 3.13 posting
@@ -197,8 +185,6 @@ curl -sS https://starship.rs/install.sh | sh
 sudo apt update
 sudo apt install -y libfuse2 libgtk-4-1 libadwaita-1-0 libvte-2.91-0
 
-#ghostty
-snap install ghostty --classic
 
 
 #warp https://www.warp.dev/download
@@ -211,5 +197,14 @@ pip install kaggle
 sudo apt install gnome-shell-extension-manager
 
 
+#chrome https://www.google.com/chrome/?spm=a2ty_o01.29997173.0.0.3b6f5171xSzZ54
 
+sudo apt install flatpak
 
+sudo apt install gnome-software-plugin-flatpak
+fish_add_path -g ~/.npm-global/bin
+exec fish
+#cline
+npm install -g cline
+#kilocode
+npm install -g @kilocode/cli
