@@ -58,9 +58,9 @@ sudo curl -f https://zed.dev/install.sh | sh
 
 
 # 9. OBSIDIAN (AppImage или Deb)
- wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/obsidian_1.5.3_amd64.deb
-sudo apt install -y ./obsidian_1.5.3_amd64.deb
- rm obsidian_1.5.3_amd64.deb
+ wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/obsidian_1.12.4_amd64.deb
+sudo apt install -y ./obsidian_1.12.4_amd64.deb
+ rm obsidian_1.12.4_amd64.deb
 
 # 10. WIRESHARK
 sudo apt install -y wireshark
@@ -208,3 +208,23 @@ exec fish
 npm install -g cline
 #kilocode
 npm install -g @kilocode/cli
+
+sudo apt install net-tools
+
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+sudo apt install git-lfs
+git lfs install
+
+
+sudo apt update
+sudo apt install -y mpv libmpv-dev meson ninja-build gcc git pkg-config libwayland-dev wayland-protocols libpipewire-0.3-dev libsystemd-dev
+
+
+git clone --single-branch https://github.com/GhostNaN/mpvpaper
+# Build
+cd mpvpaper
+meson setup build --prefix=/usr/local
+ninja -C build
+# Install
+ninja -C build install

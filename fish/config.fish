@@ -102,3 +102,8 @@ abbr -a ga 'git add'
 abbr -a gc 'git commit'
 abbr -a gp 'git push'
 abbr -a gl 'git pull'
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/killrmnv/.lmstudio/bin
+# End of LM Studio CLI section
+
