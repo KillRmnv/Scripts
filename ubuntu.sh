@@ -26,7 +26,14 @@ sudo apt install -y python3.12 python3.12-venv
 
 # 4. JDK
 sudo apt install -y openjdk-25-jdk openjdk-25-source
+sudo apt install openjdk-21-jdk
 
+# JAVA_HOME без .bashrc
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Проверить
+$JAVA_HOME/bin/java -version  # Java 21
 # 5. POSTGRES
 sudo apt install -y postgresql postgresql-contrib
 # 16. NODE.JS (LTS версия)

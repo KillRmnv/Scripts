@@ -1,0 +1,39 @@
+/* === 1. Убираем верхнюю панель вкладок === */
+#TabsToolbar {
+    visibility: collapse !important;
+}
+
+/* Убираем лишние отступы сверху */
+#titlebar {
+    padding-top: 0px !important;
+}
+
+/* === 2. Добавляем прозрачность интерфейсу === */
+
+/* Делаем фон главного окна прозрачным */
+#main-window {
+    background: transparent !important;
+}
+
+/* Полупрозрачная панель адреса и инструментов */
+#navigator-toolbox {
+    background: rgba(
+        30,
+        30,
+        30,
+        0.85
+    ) !important; /* Цвет и прозрачность (0.0 - 1.0) */
+    backdrop-filter: blur(
+        10px
+    ) !important; /* Эффект размытия (работает не везде) */
+}
+
+/* Полупрозрачная боковая панель (Sidebery) */
+#sidebar-box {
+    background: rgba(30, 30, 30, 0.9) !important;
+}
+
+/* Убираем разделители для чистоты */
+#navigator-toolbox::after {
+    display: none !important;
+}
