@@ -139,9 +139,6 @@ bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
  sudo apt-get install pass
 
 
-
-
-
 #fzf
 sudo apt install fzf
 sudo apt install pipx
@@ -161,7 +158,6 @@ sudo curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # install Posting (will also quickly install Python 3.13 if needed)
 uv tool install --python 3.13 posting
-
 
 
 #oxker
@@ -186,16 +182,13 @@ if ! grep -q '.local/bin' ~/.bashrc; then
 fi
 
 
-
 curl -sS https://starship.rs/install.sh | sh
 
 sudo apt update
 sudo apt install -y libfuse2 libgtk-4-1 libadwaita-1-0 libvte-2.91-0
 
 
-
 #warp https://www.warp.dev/download
-
 
 #kaggle
 pip install kaggle
@@ -218,7 +211,7 @@ npm install -g @kilocode/cli
 
 sudo apt install net-tools
 
-# macOS / Linux
+# macOS / Linux git lfs
 curl -LsSf https://astral.sh/uv/install.sh | sh
 sudo apt install git-lfs
 git lfs install
@@ -235,3 +228,24 @@ meson setup build --prefix=/usr/local
 ninja -C build
 # Install
 ninja -C build install
+
+#zoxide
+brew install zoxide
+#CoolReader
+sudo apt update && sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+# flatpak install flathub io.gitlab.coolreader_ng.crqt-ng
+
+brew install dust
+
+sudo apt update && sudo apt install klavaro
+
+
+mkdir app
+cd app
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+
+mkdir -p build && cd build
+cmake .. -DLLAMA_AVX2=ON -DLLAMA_F16C=ON -DLLAMA_FMA=ON -DCMAKE_BUILD_TYPE=Release
+cmake --build . --config Release -j12

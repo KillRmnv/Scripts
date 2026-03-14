@@ -93,17 +93,7 @@ set -g fish_color_string '#a6e3a1'
 set -g fish_color_error '#f38ba8'
 set -g fish_color_cwd '#94e2d5'
 
-# ───────────────────────────────────────────────────────────
-# ⚡ Git-аббревиатуры
-# ───────────────────────────────────────────────────────────
-abbr -a g git
-abbr -a gs 'git status'
-abbr -a ga 'git add'
-abbr -a gc 'git commit'
-abbr -a gp 'git push'
-abbr -a gl 'git pull'
 
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /home/killrmnv/.lmstudio/bin
-# End of LM Studio CLI section
+
+
 

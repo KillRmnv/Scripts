@@ -7,6 +7,15 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "favorite_models": [],
+    "inline_assistant_model": {
+      "provider": "lmstudio",
+      "model": "nanbeige4.1-3b",
+      "enable_thinking": false
+    },
+    "model_parameters": []
+  },
   "autosave": {
     "after_delay": {
       "milliseconds": 2000,
@@ -40,11 +49,10 @@
   },
 
   "lsp": {
-    "java": {
-      "language_server": { "name": "eclipse-jdtls", "args": [] },
-      "java_home": "/usr/lib/jvm/java-21-openjdk-amd64",
+    "jdtls": {
       "settings": {
         "java.import.maven.enabled": true,
+        "java.import.gradle.enabled": true,
         "java.configuration.updateBuildConfiguration": "automatic",
         "java.configuration.runtimes": [
           {
@@ -52,7 +60,14 @@
             "path": "/usr/lib/jvm/java-21-openjdk-amd64",
           },
         ],
+        "java.project.importOnFirstTimeStartup": "automatic",
+        "java.completion.enabled": true,
       },
+    },
+  },
+  "languages": {
+    "Java": {
+      "language_servers": ["jdtls"],
     },
   },
 }
