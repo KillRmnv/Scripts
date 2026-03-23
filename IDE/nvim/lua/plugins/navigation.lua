@@ -1,15 +1,11 @@
-return {
-    -- Файловый менеджер 1 (Nvim Tree)
-    {
-        "nvim-tree/nvim-tree.lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("nvim-tree").setup()
-            vim.keymap.set('n', '<C-n>', ':NvimTreeToggle<CR>')
-        end
-    },
+-- navigation.lua — файловый менеджер, fuzzy finder, быстрая навигация, harpoon
 
-    -- Файловый менеджер 2 (Neo-tree)
+return {
+    -- ==========================================
+    -- NEO-TREE — файловый менеджер (дерево)
+    -- https://github.com/nvim-neo-tree/neo-tree.nvim
+    -- Бинды: <leader>e (toggle), <leader>ef (focus)
+    -- ==========================================
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
@@ -25,18 +21,22 @@ return {
                         visible = false,
                         hide_dotfiles = false,
                         hide_gitignored = false,
-                        hide_by_name = { ".git", "target", "build" },
+                        hide_by_name = { ".git", "target", "build" }, -- скрыть служебные папки
                     },
-                    follow_current_file = { enabled = true },
-                    use_libuv_file_watcher = true,
+                    follow_current_file = { enabled = true }, -- автофокус на текущем файле
+                    use_libuv_file_watcher = true,             -- автообновление при изменениях
                 },
             })
             vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>", { desc = "Toggle file explorer" })
-            vim.keymap.set("n", "<leader>o", "<cmd>Neotree focus<CR>", { desc = "Focus file explorer" })
+            vim.keymap.set("n", "<leader>ef", "<cmd>Neotree focus<CR>", { desc = "Focus file explorer" })
         end,
     },
 
-    -- Telescope
+    -- ==========================================
+    -- TELESCOPE — fuzzy finder
+    -- https://github.com/nvim-telescope/telescope.nvim
+    -- Бинды: <C-p> (файлы), <C-f> (grep по проекту)
+    -- ==========================================
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.6",
@@ -48,24 +48,42 @@ return {
         end
     },
 
-    -- Навигация Leap
+    -- ==========================================
+    -- LEAP.NVIM — быстрая навигация по видимому тексту
+    -- https://codeberg.org/andyg/leap.nvim (переехал с GitHub)
+    -- Бинды: s (прыжок), S (прыжок между окнами)
+    -- ==========================================
     {
-        "ggandor/leap.nvim",
+        url = "https://codeberg.org/andyg/leap.nvim",
+        name = "leap.nvim",
         dependencies = { "ggandor/flit.nvim" },
         config = function()
-            require("leap").add_default_mappings()
+            vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
+            vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
             require("flit").setup({ labeled_modes = "nv" })
         end,
     },
 
-    -- Терминал
+    -- ==========================================
+    -- HARPOON 2 — быстрый доступ к часто используемым файлам
+    -- https://github.com/ThePrimeagen/harpoon/tree/harpoon2
+    -- Бинды: <leader>ha (добавить), <leader>hm (меню), <leader>h1-4 (переключиться)
+    -- ==========================================
     {
-        "akinsho/toggleterm.nvim",
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require("toggleterm").setup({
-                open_mapping = [[<c-t>]],
-                direction = 'float',
-            })
-        end
+            local harpoon = require("harpoon")
+            harpoon:setup()
+
+            local set = vim.keymap.set
+            set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+            set("n", "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
+            set("n", "<leader>h1", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+            set("n", "<leader>h2", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+            set("n", "<leader>h3", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+            set("n", "<leader>h4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+        end,
     },
 }

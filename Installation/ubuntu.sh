@@ -78,8 +78,7 @@ sudo dpkg-reconfigure wireshark-common
 sudo add-apt-repository ppa:sunderme/texstudio -y
 sudo apt update
 sudo apt install -y texstudio
-
-
+sudo apt install texlive-full
 
 # 14. Hugging Face CLI & OpenCode
 pip install -U "huggingface_hub[cli]"

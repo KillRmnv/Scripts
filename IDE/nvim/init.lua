@@ -4,7 +4,11 @@
 -- ==========================================
 -- ~/.config/nvim/init.lua
 
--- 1. Bootstrap lazy.nvim
+-- Leader key (Space)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Bootstrap lazy.nvim (менеджер плагинов)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -15,35 +19,40 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- 2. Загрузка плагинов
--- Эта строка говорит Lazy загрузить всё из папки lua/plugins/
+-- Загрузка всех плагинов из lua/plugins/
 require("lazy").setup("plugins", {
-    change_detection = { notify = false } -- Опционально: убрать уведомления об изменении конфига
+    change_detection = { notify = false } -- убрать уведомления об изменении конфига
 })
 
--- Здесь могут быть ваши общие настройки (vim.opt...) и keymaps
--- Базовые настройки
-vim.opt.number = true
-vim.opt.mouse = "a"
-vim.opt.clipboard = "unnamedplus"
+-- ==========================================
+-- БАЗОВЫЕ НАСТРОЙКИ
+-- ==========================================
+
+vim.opt.number = true            -- нумерация строк
+vim.opt.mouse = "a"              -- мышь везде
+vim.opt.clipboard = "unnamedplus"-- системный буфер обмена
 vim.opt.encoding = "utf-8"
 vim.cmd("syntax on")
-vim.opt.termguicolors = true
+vim.opt.termguicolors = true     -- 24-bit цвета
 
--- Отступы (4 пробела для Java/C++, 4 для Python)
+-- Отступы (4 пробела)
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 -- Поиск
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+vim.opt.ignorecase = true        -- регистронезависимый поиск
+vim.opt.smartcase = true         -- умный регистр (если есть заглавные — учитывать)
+vim.opt.hlsearch = true          -- подсветка результатов
+vim.opt.incsearch = true         -- инкрементальный поиск
+
+-- Флаг для cmp-ai (локальное AI автодополнение)
+vim.g.cmp_ai_enabled = false
 
 -- ==========================================
--- NEOVIDE НАСТРОЙКИ
+-- NEOVIDE НАСТРОЙКИ (GUI-фронтенд для Neovim)
+-- https://github.com/neovide/neovide
 -- ==========================================
 
 if vim.g.neovide then
@@ -54,7 +63,3 @@ if vim.g.neovide then
     vim.g.neovide_refresh_rate = 144
     vim.g.neovide_remember_window_size = true
 end
-
--- ==========================================
--- ЗАГРУЗКА ПЛАГИНОВ
--- ==========================================
