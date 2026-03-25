@@ -1,0 +1,43 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+alt+k",
+        "command": "editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-editor.action.formatDocument",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+k",
+        "command": "editor.action.formatSelection",
+        "when": "editorHasDocumentFormattingProvider && editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "-editor.action.formatSelection",
+        "when": "editorHasDocumentFormattingProvider && editorHasSelection && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "meta+z",
+        "command": "workbench.action.toggleZenMode",
+        "when": "!isAuxiliaryWindowFocusedContext"
+    },
+    {
+        "key": "ctrl+k z",
+        "command": "-workbench.action.toggleZenMode",
+        "when": "!isAuxiliaryWindowFocusedContext"
+    }
+]

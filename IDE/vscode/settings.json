@@ -1,0 +1,50 @@
+{
+    "workbench.layoutControl.enabled": false,
+    "breadcrumbs.enabled": false,
+    "editor.minimap.autohide": "mouseover",
+    "editor.minimap.size": "fill",
+    "editor.scrollbar.vertical": "hidden",
+    "workbench.iconTheme": "ayu-mirage-zed",
+    "editor.fontFamily": "JetBrainsMono Nerd Font Mono, Fira Code",
+    "editor.fontLigatures": true,
+    "chat.instructionsFilesLocations": {
+        ".github/instructions": true,
+        ".claude/rules": true,
+        "~/.copilot/instructions": true,
+        "~/.claude/rules": true,
+        "/tmp/postman-collections-post-response.instructions.md": true,
+        "/tmp/postman-collections-pre-request.instructions.md": true,
+        "/tmp/postman-folder-post-response.instructions.md": true,
+        "/tmp/postman-folder-pre-request.instructions.md": true,
+        "/tmp/postman-http-request-post-response.instructions.md": true,
+        "/tmp/postman-http-request-pre-request.instructions.md": true
+    },
+    "workbench.activityBar.compact": true,
+    "editor.fontSize": 15,
+    "files.autoSave": "afterDelay",
+    "rsp-ui.enableStartServerOnActivation": [
+        {
+            "id": "redhat.vscode-community-server-connector",
+            "name": "Community Server Connector",
+            "startOnActivation": true
+        }
+    ],
+    "chat.mcp.gallery.enabled": true,
+    "workbench.colorTheme": "Catppuccin Dark Theme",
+    "workbench.navigationControl.enabled": false,
+    "chat.agentsControl.enabled": false,
+    "window.commandCenter": false,
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "window.customTitleBarVisibility": "never",
+    "window.customMenuBarAltFocus": false,
+    "window.enableMenuBarMnemonics": false,
+    "window.menuBarVisibility": "toggle",
+    "window.titleBarStyle": "native",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth"
+}
