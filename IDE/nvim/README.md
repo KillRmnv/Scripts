@@ -73,6 +73,7 @@ sudo apt install clang      # Ubuntu
 | **fzf** | Fuzzy finder | [github.com/junegunn/fzf](https://github.com/junegunn/fzf) | `sudo pacman -S fzf` / `brew install fzf` |
 | **JetBrainsMono Nerd Font** | Шрифт с иконками | [github.com/ryanoasis/nerd-fonts](https://github.com/ryanoasis/nerd-fonts) | `yay -S nerd-fonts-jetbrains-mono` |
 
+
 ### 4. API ключи (для AI)
 
 Добавь в `~/.bashrc` или `~/.zshrc`:

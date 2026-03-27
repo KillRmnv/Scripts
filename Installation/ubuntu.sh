@@ -248,3 +248,5 @@ cd llama.cpp
 mkdir -p build && cd build
 cmake .. -DLLAMA_AVX2=ON -DLLAMA_F16C=ON -DLLAMA_FMA=ON -DCMAKE_BUILD_TYPE=Release
 cmake --build . --config Release -j12
+
+sudo apt install chafa
