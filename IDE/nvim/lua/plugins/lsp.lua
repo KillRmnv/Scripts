@@ -44,12 +44,8 @@ return {
                     "basedpyright", "ruff",  -- Python
                     "clangd",                 -- C/C++
                     "lua_ls",                 -- Lua
-                    "jdtls",                  -- Java (управляется nvim-jdtls отдельно)
                     "marksman",               -- Markdown
                     "sqls",                   -- SQL
-                },
-                handlers = {
-                    ["jdtls"] = function() end, -- пропускаем, управляется nvim-jdtls
                 },
             })
         end
@@ -103,8 +99,8 @@ return {
                 }
             })
 
-            -- JDTLS отключён (управляется nvim-jdtls отдельно)
-            vim.lsp.config('jdtls', { enabled = false })
+            -- JDTLS отключён здесь (управляется nvim-jdtls отдельно)
+            -- Не создаём даже конфиг — чтобы lspconfig не пытался его запустить
             vim.lsp.enable({ 'basedpyright', 'ruff', 'clangd', 'lua_ls', 'marksman', 'sqls' })
 
             -- Глобальные LSP бинды
@@ -140,9 +136,31 @@ return {
             local home = os.getenv("HOME")
             local java_cmd = "/usr/lib/jvm/java-25-openjdk-amd64/bin/java"
 
+            -- Глобальный флаг: JDTLS уже запущен для текущего проекта
+            local jdtls_initialized = false
+
             local function setup_java()
+                -- Если JDTLS уже запущен для этого буфера — пропускаем
+                if jdtls_initialized then return end
+
                 local root_dir = require("jdtls.setup").find_root({ "pom.xml", "build.gradle", ".git" })
                     or vim.fn.getcwd()
+
+                -- Для мультимодульных Maven-проектов ищем корневой pom.xml
+                -- Поднимаемся вверх, пока не найдём родительский pom.xml
+                local current_dir = root_dir
+                while true do
+                    local parent_dir = vim.fn.fnamemodify(current_dir, ":h")
+                    if parent_dir == current_dir then break end -- достигли корня
+                    if vim.fn.glob(parent_dir .. "/pom.xml") ~= "" then
+                        root_dir = parent_dir
+                        current_dir = parent_dir
+                    else
+                        break
+                    end
+                end
+
+                -- Один workspace для всего проекта (не на модуль)
                 local project_name = vim.fn.fnamemodify(root_dir, ":t")
                 local workspace_folder = home .. "/.cache/jdtls/workspace/" .. project_name
 
@@ -194,6 +212,13 @@ return {
                                     },
                                 },
                             },
+                            -- Включаем скачивание исходников зависимостей (для go to definition)
+                            eclipse = {
+                                downloadSources = true,
+                            },
+                            maven = {
+                                downloadSources = true,
+                            },
                         },
                     },
                     init_options = { bundles = bundles },
@@ -209,6 +234,8 @@ return {
                         jdtls.setup_dap({ hotcodereplace = "auto" })
                     end,
                 })
+
+                jdtls_initialized = true
             end
 
             -- Запускаем при открытии Java файлов

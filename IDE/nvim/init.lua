@@ -62,4 +62,12 @@ if vim.g.neovide then
     vim.g.neovide_cursor_vfx_mode = "railgun"
     vim.g.neovide_refresh_rate = 144
     vim.g.neovide_remember_window_size = true
+
+    -- Прозрачность фона Neovide (0.0 — полностью прозрачный, 1.0 — непрозрачный)
+    vim.g.neovide_opacity = 0.85
+    -- Тень для плавающего окна (опционально, убирает "чёрный" фон)
+    vim.g.neovide_floating_shadow = true
+    vim.g.neovide_floating_z_height = 10
+    vim.g.neovide_light_angle_degrees = 45
+    vim.g.neovide_light_radius = 5
 end
