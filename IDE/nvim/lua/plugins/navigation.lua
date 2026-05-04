@@ -86,18 +86,38 @@ return {
             set("n", "<leader>h4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
         end,
     },
-    -- {
-    --     "nanotee/zoxide.vim",
-    --     lazy = false,
-    -- },
-    -- {
-    --     "christoomey/vim-tmux-navigator",
-    --     lazy = false,
-    -- },
-    -- {
-    --     "RyanMillerC/better-vim-tmux-resizer",
-    --     lazy = false,
-    -- },
+    -- ==========================================
+    -- ZOXIDE — умная навигация по директориям
+    -- https://github.com/nanotee/zoxide.vim
+    -- Команды: :Z {query} (переход), :Z <Tab> (автодополнение)
+    -- Требует установленного zoxide
+    -- ==========================================
+    {
+        "nanotee/zoxide.vim",
+        lazy = false,
+    },
+
+    -- ==========================================
+    -- VIM-TMUX-NAVIGATOR — навигация между Neovim и tmux-панелями
+    -- https://github.com/christoomey/vim-tmux-navigator
+    -- Бинды: <C-h/j/k/l> (лево/низ/верх/право)
+    -- Работает только внутри tmux
+    -- ==========================================
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
+
+    -- ==========================================
+    -- BETTER-TMUX-RESIZER — ресайз tmux-панелей из Neovim
+    -- https://github.com/RyanMillerC/better-vim-tmux-resizer
+    -- Бинды: <C-Up/Down/Left/Right> (изменение размера)
+    -- Работает только внутри tmux
+    -- ==========================================
+    {
+        "RyanMillerC/better-vim-tmux-resizer",
+        lazy = false,
+    },
     -- {
     --     "folke/flash.nvim",
     --     event = "VeryLazy",

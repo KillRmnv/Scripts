@@ -7,7 +7,9 @@
 -- Leader key (Space)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
+-- В вашем init.lua или конфиге
+vim.opt.number = true         -- абсолютный номер текущей строки
+vim.opt.relativenumber = true -- относительные номера остальных строк
 -- Bootstrap lazy.nvim (менеджер плагинов)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

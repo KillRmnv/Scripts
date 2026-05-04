@@ -9,7 +9,7 @@ return {
         name = "catppuccin",
         priority = 1000,
         config = function()
-            require("catppuccin").setup({ 
+            require("catppuccin").setup({
                 flavour = "mocha",
                 transparent_background = true, -- Включаем поддержку прозрачности в теме
             })
@@ -129,8 +129,19 @@ return {
                     "ColorColumn",
                 },
             })
-            vim.cmd("TransparentEnable") 
+            vim.cmd("TransparentEnable")
         end,
+    },
+
+    -- ==========================================
+    -- RAINBOW-DELIMITERS — разноцветные скобки для парных блоков
+    -- https://github.com/HiPhish/rainbow-delimiters.nvim
+    -- Зависит от Treesitter (editor.lua)
+    -- ==========================================
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        event = "BufReadPre",
     },
 
     -- ==========================================

@@ -14,10 +14,10 @@
     ├── debug.lua               # DAP отладка (Python, Java)
     ├── editor.lua              # Treesitter, autopairs, surround, TODO
     ├── lsp.lua                 # LSP серверы, CMP автодополнение, none-ls
-    ├── navigation.lua          # Neo-tree, Telescope, Leap, Harpoon
+    ├── navigation.lua          # Neo-tree, Telescope, Leap, Harpoon, zoxide, tmux
     ├── testing.lua             # Neotest (Python, Java)
     ├── tools.lua               # Git (lazygit, diffview), Docker, Database, HTTP
-    └── ui.lua                  # Тема, статус-бар, which-key, отступы
+    └── ui.lua                  # Тема, статус-бар, which-key, отступы, rainbow-delimiters
 ```
 
 ## Языки
@@ -111,8 +111,16 @@ nvim  # Первый запуск установит все плагины че�
 | `<leader>ha` | Harpoon — добавить файл |
 | `<leader>hm` | Harpoon — меню |
 | `<leader>h1-4` | Harpoon — файл 1-4 |
+| `<C-h/j/k/l>` | Навигация Neovim ↔ tmux (vim-tmux-navigator) |
 | `<leader>sr` | Find & replace (grug-far) |
 | `<leader>st` | Поиск TODO (todo-comments) |
+
+### Навигация по директориям (zoxide)
+
+| Команда | Действие |
+|---------|----------|
+| `:Z {query}` | Перейти в директорию (zoxide) |
+| `:Z <Tab>` | Автодополнение путей |
 
 ### LSP
 
@@ -206,6 +214,10 @@ nvim  # Первый запуск установит все плагины че�
 | `af` / `if` | Treesitter: функция (внешняя / внутренняя) |
 | `ac` / `ic` | Treesitter: класс (внешний / внутренний) |
 
+### Rainbow Delimiters
+
+Скобки `(`, `[`, `{` и т.д. автоматически подсвечиваются разными цветами при входе/выходе из блока. Работает на базе Treesitter, без дополнительных биндов.
+
 ## Плагины (полный список)
 
 ### AI
@@ -233,6 +245,9 @@ nvim  # Первый запуск установит все плагины че�
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) — fuzzy finder
 - [leap.nvim](https://codeberg.org/andyg/leap.nvim) — быстрая навигация
 - [harpoon](https://github.com/ThePrimeagen/harpoon) — быстрый доступ к файлам
+- [zoxide.vim](https://github.com/nanotee/zoxide.vim) — умная навигация по директориям
+- [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator) — навигация Neovim ↔ tmux
+- [better-vim-tmux-resizer](https://github.com/RyanMillerC/better-vim-tmux-resizer) — ресайз tmux-панелей
 
 ### Редактор
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) — подсветка синтаксиса
@@ -258,6 +273,7 @@ nvim  # Первый запуск установит все плагины че�
 - [which-key](https://github.com/folke/which-key.nvim) — подсказки биндов
 - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim) — линии отступов
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) — иконки
+- [rainbow-delimiters.nvim](https://github.com/HiPhish/rainbow-delimiters.nvim) — разноцветные скобки
 
 ### Инструменты
 - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) — терминал
