@@ -16,4 +16,8 @@ if ! command -v superfile &> /dev/null; then
     bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
 fi
 
+curl -fsSL https://pi.dev/install.sh | sh
+
+curl -LsSf https://hf.co/cli/install.sh | bash
+
 echo "Готово!"

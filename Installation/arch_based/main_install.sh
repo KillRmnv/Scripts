@@ -29,7 +29,7 @@ echo "=== Редакторы и IDE ==="
 sudo pacman -S --noconfirm neovim neovide zed obsidian texlive-meta
 
 echo "=== Терминал и Shell ==="
-sudo pacman -S --noconfirm fish starship kitty ghostty
+sudo pacman -S --noconfirm fish starship kitty 
 
 echo "=== Утилиты разработки и мониторинга ==="
 sudo pacman -S --noconfirm docker docker-compose btop lazygit superfile tealdeer zoxide dust github-cli

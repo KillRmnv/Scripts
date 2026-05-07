@@ -1,0 +1,17 @@
+{
+  "lastChangelogVersion": "0.70.5",
+  "defaultProvider": "kilo",
+  "defaultModel": "tencent/hy3-preview:free",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:context-mode",
+    "npm:@tmustier/pi-usage-extension",
+    "npm:pi-ask-user",
+    "npm:pi-free",
+    "npm:pi-extmgr",
+    "npm:pi-web-access",
+    "npm:pi-powerline-footer",
+    "npm:@aliou/pi-guardrails",
+    "npm:@plannotator/pi-extension"
+  ]
+}

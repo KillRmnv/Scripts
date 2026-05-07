@@ -7,7 +7,10 @@ set -e
 
 if ! command -v yay &> /dev/null; then
     echo "Установка yay..."
-    sudo pacman -S --noconfirm yay
+    sudo pacman -S --needed git base-devel
+    git clone https://aur.archlinux.org/yay.git /tmp/yay
+    cd /tmp/yay && makepkg -si --noconfirm
+    cd ~ && rm -rf /tmp/yay
 fi
 
 echo "=== Установка AUR пакетов ==="
@@ -22,7 +25,6 @@ echo "=== Утилиты ==="
 yay -S --noconfirm oxker-bin
 
 echo "=== AI и ML ==="
-yay -S --noconfirm mistral-vibe
 yay -S --noconfirm mpvpaper
 
 echo "=== Браузеры ==="

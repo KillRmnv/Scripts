@@ -14,7 +14,9 @@ dynamic_background_opacity 1
 confirm_os_window_close 0
 
 # Animated cursor
-cursor_trail 1
+cursor_trail 2000
+cursor_trail_decay 0.1 0.4
+cursor_trail_start_threshold 2
 
 # change to x11 or wayland or leave auto
 linux_display_server auto
@@ -32,6 +34,11 @@ window_padding_width 4
 # cursor #dddddd
 
 # BEGIN_KITTY_THEME
-# Belafonte Night
+# Darkside
 include current-theme.conf
 # END_KITTY_THEME
+
+tab_bar_style powerline
+tab_powerline_style round
+
+notify_on_cmd_finish invisible
