@@ -30,4 +30,10 @@ yay -S --noconfirm mpvpaper
 echo "=== Браузеры ==="
 yay -S --noconfirm google-chrome
 
+echo "=== LM Studio ==="
+yay -S lmstudio-bin
+
+echo "=== Windscribe ==="
+yay -S windscribe-cli-v2-bin
+
 echo "Готово!"

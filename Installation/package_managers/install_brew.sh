@@ -8,5 +8,3 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Проверка
 brew --version
-
-

@@ -57,6 +57,6 @@ echo "/usr/bin/fish" | sudo tee -a /etc/shells
 chsh -s /usr/bin/fish
 
 echo "=== Настройка Fisher ==="
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 
 echo "Готово! Требуется перезагрузка."
