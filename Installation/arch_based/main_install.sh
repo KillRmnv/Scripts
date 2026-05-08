@@ -9,7 +9,7 @@ echo "=== Обновление системы ==="
 sudo pacman -Syu --noconfirm
 
 echo "=== Системные утилиты ==="
-sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree bat ripgrep fd fzf pass jq chafa git-lfs flatpak 
+sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree bat ripgrep fd fzf pass jq chafa git-lfs flatpak
 
 echo "=== Разработка: Языки и SDK ==="
 sudo pacman -S --noconfirm python python-pip python-virtualenv
@@ -29,7 +29,7 @@ echo "=== Редакторы и IDE ==="
 sudo pacman -S --noconfirm neovim neovide zed obsidian texlive-meta
 
 echo "=== Терминал и Shell ==="
-sudo pacman -S --noconfirm fish starship kitty 
+sudo pacman -S --noconfirm fish starship kitty
 
 echo "=== Утилиты разработки и мониторинга ==="
 sudo pacman -S --noconfirm docker docker-compose btop lazygit superfile tealdeer zoxide dust github-cli
@@ -45,7 +45,10 @@ sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 
 echo "=== Рабочий стол ==="
 sudo pacman -S --noconfirm niri cachyos-niri-settings
-sudo pacman -S --noconfirm hyprland 
+sudo pacman -S --noconfirm hyprland
+
+echo "=== Screen recording packages ==z="
+sudo pacman -S gpu-screen-recorder xdg-desktop-portal xdg-desktop-portal-wlr
 
 echo "=== Настройка Docker ==="
 sudo systemctl enable --now docker
@@ -59,4 +62,7 @@ chsh -s /usr/bin/fish
 echo "=== Настройка Fisher ==="
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 
+# Скачать git.fish от bobthecow и положить в completions
+curl -o ~/.config/fish/completions/git.fish \
+  https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git.fish
 echo "Готово! Требуется перезагрузка."

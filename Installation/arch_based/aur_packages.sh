@@ -36,4 +36,6 @@ yay -S lmstudio-bin
 echo "=== Windscribe ==="
 yay -S windscribe-cli-v2-bin
 
+echo "=== Wallpaper Engine ==="
+yay -S linux-wallpaperengine-git
 echo "Готово!"
