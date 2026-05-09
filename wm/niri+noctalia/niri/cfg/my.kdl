@@ -1,0 +1,37 @@
+// my config file
+
+// Глобальные параметры blur (обязательно)
+blur {
+    passes 3
+    offset 3
+    noise 0.02
+}
+
+// Border рисуется вокруг окна, а не под ним
+window-rule {
+    draw-border-with-background false
+}
+
+// Blur для плавающих окон
+window-rule {
+    match is-floating=true
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// Blur для tiled окон тоже (если нужно)
+window-rule {
+    match is-floating=false
+    background-effect {
+        blur true
+        xray true
+    }
+}
+
+// Прозрачность для неактивных окон, чтобы blur был виден
+window-rule {
+    match is-active=false
+    opacity 0.90
+}
