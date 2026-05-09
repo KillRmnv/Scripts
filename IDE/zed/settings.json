@@ -1,20 +1,34 @@
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
+// documentation: [https://zed.dev/docs/configuring-zed](https://zed.dev/docs/configuring-zed)
 //
 // To see all of Zed's default settings without changing your
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "project_panel": {
+    "dock": "left",
+  },
+  "cli_default_open_behavior": "new_window",
   "agent": {
+    "dock": "right",
     "favorite_models": [],
     "inline_assistant_model": {
       "provider": "lmstudio",
       "model": "nanbeige4.1-3b",
-      "enable_thinking": false
+      "enable_thinking": false,
     },
-    "model_parameters": []
+    "model_parameters": [],
   },
   "autosave": {
     "after_delay": {
@@ -45,23 +59,131 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "JetBrains Dark",
+    "dark": "Catppuccin Espresso (Blur) [Light]",
   },
 
   "lsp": {
     "jdtls": {
-      "settings": {
-        "java.import.maven.enabled": true,
-        "java.import.gradle.enabled": true,
-        "java.configuration.updateBuildConfiguration": "automatic",
-        "java.configuration.runtimes": [
-          {
-            "name": "JavaSE-21",
-            "path": "/usr/lib/jvm/java-21-openjdk-amd64",
+      "initialization_options": {
+        "bundles": [],
+        // The extension automatically sets this to the worktree root.
+        // Override only if your Java project root differs from the opened folder:
+        // "workspaceFolders": ["file:///path/to/your/java/project"],
+        "settings": {
+          "lombok_support": true,
+          "java": {
+            "configuration": {
+              "updateBuildConfiguration": "automatic",
+              "runtimes": [],
+            },
+            "saveActions": {
+              "organizeImports": true,
+            },
+            "compile": {
+              "nullAnalysis": {
+                "mode": "automatic",
+              },
+            },
+            "references": {
+              "includeAccessors": true,
+              "includeDecompiledSources": true,
+            },
+            "jdt": {
+              "ls": {
+                "protobufSupport": {
+                  "enabled": true,
+                },
+                "groovySupport": {
+                  "enabled": true,
+                },
+              },
+            },
+            "eclipse": {
+              "downloadSources": true,
+            },
+            "maven": {
+              "downloadSources": true,
+              "updateSnapshots": true,
+            },
+            "autobuild": {
+              "enabled": true,
+            },
+            "maxConcurrentBuilds": 1,
+            "inlayHints": {
+              "parameterNames": {
+                "enabled": "all",
+              },
+            },
+            "signatureHelp": {
+              "enabled": true,
+              "description": {
+                "enabled": true,
+              },
+            },
+            "format": {
+              "enabled": true,
+              "settings": {
+                // The formatter config to use
+                "url": "~/.config/jdtls/palantir_java_jdtls.xml",
+              },
+              "onType": {
+                "enabled": true,
+              },
+            },
+            "contentProvider": {
+              "preferred": null,
+            },
+            "import": {
+              "gradle": {
+                "enabled": true,
+                "wrapper": {
+                  "enabled": true,
+                },
+              },
+              "maven": {
+                "enabled": true,
+              },
+              "exclusions": [
+                "**/node_modules/**",
+                "**/.metadata/**",
+                "**/archetype-resources/**",
+                "**/META-INF/maven/**",
+                "/**/test/**",
+              ],
+            },
+            "completion": {
+              "enabled": true,
+              "favoriteStaticMembers": [
+                "org.junit.Assert.*",
+                "org.junit.Assume.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "org.junit.jupiter.api.Assumptions.*",
+                "org.junit.jupiter.api.DynamicContainer.*",
+                "org.junit.jupiter.api.DynamicTest.*",
+                "org.mockito.Mockito.*",
+                "org.mockito.ArgumentMatchers.*",
+              ],
+              "importOrder": ["java", "javax", "com", "org"],
+              "postfix": {
+                "enabled": true,
+              },
+              "chain": {
+                "enabled": true,
+              },
+              "guessMethodArguments": "insertParameterNames",
+              "overwrite": true,
+            },
+            "errors": {
+              "incompleteClasspath": {
+                "severity": "warning",
+              },
+            },
+            "implementationCodeLens": "all",
+            "referencesCodeLens": {
+              "enabled": true,
+            },
           },
-        ],
-        "java.project.importOnFirstTimeStartup": "automatic",
-        "java.completion.enabled": true,
+        },
       },
     },
   },
