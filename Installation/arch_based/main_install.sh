@@ -7,7 +7,7 @@ set -e
 
 echo "=== Обновление системы ==="
 sudo pacman -Syu --noconfirm
-
+sudo pacman -S octopi
 echo "=== Системные утилиты ==="
 sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree bat ripgrep fd fzf pass jq chafa git-lfs flatpak
 
@@ -44,8 +44,10 @@ echo "=== Шрифты ==="
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 
 echo "=== Рабочий стол ==="
-sudo pacman -S --noconfirm niri cachyos-niri-settings
-sudo pacman -S --noconfirm hyprland
+# sudo pacman -S --noconfirm niri cachyos-niri-settings
+# sudo pacman -S --noconfirm hyprland
+curl -fsSL https://install.danklinux.com | sh
+sudo pacman -S adw-gtk-theme
 
 echo "=== Screen recording packages ==z="
 sudo pacman -S gpu-screen-recorder xdg-desktop-portal xdg-desktop-portal-wlr
@@ -66,3 +68,5 @@ fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/fun
 curl -o ~/.config/fish/completions/git.fish \
   https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git.fish
 echo "Готово! Требуется перезагрузка."
+
+sudo pacman -S waypaper

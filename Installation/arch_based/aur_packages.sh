@@ -36,6 +36,12 @@ yay -S lmstudio-bin
 echo "=== Windscribe ==="
 yay -S windscribe-cli-v2-bin
 
+
+echo "=== github cli file downloader ==="
+yay -S ghgrab-bin   
+
 echo "=== Wallpaper Engine ==="
 yay -S linux-wallpaperengine-git
+
+yay -S hydra-launcher-bin
 echo "Готово!"

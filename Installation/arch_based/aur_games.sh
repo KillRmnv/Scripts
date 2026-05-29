@@ -8,8 +8,8 @@ yay -S --noconfirm proton-ge-custom-bin
 echo "=== ProtonUp-Qt (обновлялка ProtonGE/Wine-GE) ==="
 yay -S --noconfirm protonup-qt
 
-echo "=== PortProton ==="
-yay -S --noconfirm portproton
+
+yay -S proton-cachyos-slr
 
 echo "=== Heroic Games Launcher (Epic + GOG + Amazon) ==="
 yay -S --noconfirm heroic-games-launcher
