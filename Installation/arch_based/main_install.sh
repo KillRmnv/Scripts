@@ -9,7 +9,7 @@ echo "=== Обновление системы ==="
 sudo pacman -Syu --noconfirm
 sudo pacman -S octopi
 echo "=== Системные утилиты ==="
-sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree bat ripgrep fd fzf pass jq chafa git-lfs flatpak
+sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree chafa bat ripgrep fd fzf pass jq git-lfs flatpak
 
 echo "=== Разработка: Языки и SDK ==="
 sudo pacman -S --noconfirm python python-pip python-virtualenv
@@ -23,10 +23,10 @@ echo "=== Сборочные инструменты ==="
 sudo pacman -S --noconfirm cmake ninja meson
 
 echo "=== Базы данных ==="
-sudo pacman -S --noconfirm postgresql
+sudo pacman -S --noconfirm postgresql dbeaver
 
 echo "=== Редакторы и IDE ==="
-sudo pacman -S --noconfirm neovim neovide zed obsidian texlive-meta
+sudo pacman -S --noconfirm neovim zed obsidian texlive-meta
 
 echo "=== Терминал и Shell ==="
 sudo pacman -S --noconfirm fish starship kitty
@@ -39,6 +39,7 @@ sudo pacman -S --noconfirm uv opencode
 
 echo "=== Медиа и прочее ==="
 sudo pacman -S --noconfirm wireshark-qt mpv klavaro
+sudo pacman -S mitmproxy
 
 echo "=== Шрифты ==="
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd

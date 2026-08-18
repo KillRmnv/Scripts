@@ -54,20 +54,15 @@ sudo apt install -y pgadmin4-desktop
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
 sudo apt install -y neovim
-# Neovide (через cargo, если есть, или скачивание бинарника)
-wget https://github.com/neovide/neovide/releases/latest/download/neovide-linux-x86_64.tar.gz
-tar -xvf neovide-linux-x86_64.tar.gz
-sudo mv neovide /usr/local/bin/
-rm neovide-linux-x86_64.tar.gz
 
 # 7. ZED EDITOR
 sudo curl -f https://zed.dev/install.sh | sh
 
 
 # 9. OBSIDIAN (AppImage или Deb)
- wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/obsidian_1.12.4_amd64.deb
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.12.4/obsidian_1.12.4_amd64.deb
 sudo apt install -y ./obsidian_1.12.4_amd64.deb
- rm obsidian_1.12.4_amd64.deb
+rm obsidian_1.12.4_amd64.deb
 
 # 10. WIRESHARK
 sudo apt install -y wireshark
@@ -80,17 +75,8 @@ sudo apt update
 sudo apt install -y texstudio
 sudo apt install texlive-full
 
-# 14. Hugging Face CLI & OpenCode
-pip install -U "huggingface_hub[cli]"
-# Для opencode обычно используется специфичный скрипт или pip, если это клиент
-
+# 14.  OpenCode
 sudo curl -fsSL https://opencode.ai/install | bash
-
-#qwen code
-sudo curl -fsSL https://qwen-code-assets.oss-cn-hangzhou.aliyuncs.com/installation/install-qwen.sh | bash
-
-#mistral vibe
-sudo curl -LsSf https://mistral.ai/vibe/install.sh | bash
 
 # OpenBLAS
 sudo apt update
@@ -106,14 +92,6 @@ source $HOME/.cargo/env
 
 rustup update
 
-
-#models
-git clone https://github.com/arimxyer/models
-cd models
-cargo build --release
-./target/release/models
-
-
 #also install Lm Studio via Browser https://lmstudio.ai/
 
 #btop https://github.com/aristocratos/btop
@@ -122,7 +100,6 @@ brew install btop
 sudo apt install tree
 #batcat
 sudo apt install bat
-
 
 #superfile
 bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
@@ -133,19 +110,9 @@ bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
  #fd
  sudo apt install fd-find
 
-
-#pass
- sudo apt-get install pass
-
-
 #fzf
 sudo apt install fzf
 sudo apt install pipx
-
-#tldr
-pipx install tldr
-
-
 
 #lazygit
 brew install lazygit
@@ -158,10 +125,8 @@ sudo curl -LsSf https://astral.sh/uv/install.sh | sh
 # install Posting (will also quickly install Python 3.13 if needed)
 uv tool install --python 3.13 posting
 
-
 #oxker
 cargo install oxker
-
 
 sudo apt install -y curl wget gnupg2 software-properties-common apt-transport-https ca-certificates
 
@@ -174,7 +139,6 @@ rm JetBrainsMono.zip
 fc-cache -fv
 
 
-
 # Добавляем в PATH (если ~/.local/bin нет в PATH)
 if ! grep -q '.local/bin' ~/.bashrc; then
     echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
@@ -185,12 +149,6 @@ curl -sS https://starship.rs/install.sh | sh
 
 sudo apt update
 sudo apt install -y libfuse2 libgtk-4-1 libadwaita-1-0 libvte-2.91-0
-
-
-#warp https://www.warp.dev/download
-
-#kaggle
-pip install kaggle
 
 
 sudo apt install gnome-shell-extension-manager
@@ -230,23 +188,13 @@ ninja -C build install
 
 #zoxide
 brew install zoxide
-#CoolReader
-sudo apt update && sudo apt install flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# flatpak install flathub io.gitlab.coolreader_ng.crqt-ng
 
 brew install dust
 
 sudo apt update && sudo apt install klavaro
 
-
-mkdir app
-cd app
-git clone https://github.com/ggerganov/llama.cpp
-cd llama.cpp
-
-mkdir -p build && cd build
-cmake .. -DLLAMA_AVX2=ON -DLLAMA_F16C=ON -DLLAMA_FMA=ON -DCMAKE_BUILD_TYPE=Release
-cmake --build . --config Release -j12
-
 sudo apt install chafa
+
+ #jq or go to github page and check for latest
+sudo apt-get install jq
+

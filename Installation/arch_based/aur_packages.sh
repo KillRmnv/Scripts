@@ -18,8 +18,8 @@ echo "=== Установка AUR пакетов ==="
 echo "=== Базы данных ==="
 yay -S --noconfirm pgadmin4
 
-echo "=== Терминалы ==="
-yay -S --noconfirm warp-terminal-bin
+# echo "=== Терминалы ==="
+# yay -S --noconfirm warp-terminal-bin
 
 echo "=== Утилиты ==="
 yay -S --noconfirm oxker-bin
@@ -43,5 +43,5 @@ yay -S ghgrab-bin
 echo "=== Wallpaper Engine ==="
 yay -S linux-wallpaperengine-git
 
-yay -S hydra-launcher-bin
+# yay -S hydra-launcher-bin
 echo "Готово!"

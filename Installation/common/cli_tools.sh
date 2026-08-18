@@ -19,5 +19,7 @@ fi
 curl -fsSL https://pi.dev/install.sh | sh
 
 curl -LsSf https://hf.co/cli/install.sh | bash
+#fresh text editor
+curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
 
 echo "Готово!"

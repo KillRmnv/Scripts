@@ -29,9 +29,6 @@ sudo pacman -S --noconfirm \
   gamescope \
   corectrl
 
-echo "=== Launchers ==="
-sudo pacman -S --noconfirm lutris
-
 echo "=== Торрент-клиент ==="
 sudo pacman -S --noconfirm qbittorrent
 
