@@ -12,4 +12,5 @@ sudo npm install -g @kilocode/cli
 echo "=== Установка Posting через uv ==="
 uv tool install --python 3.13 posting
 
+pipx install ghgrab
 echo "Готово!"

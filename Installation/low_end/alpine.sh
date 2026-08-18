@@ -39,6 +39,11 @@ sudo apk add openjdk21
 # его не нужно — всю работу с пакетами выполняет uv.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+echo "=== pipx ==="
+# На Alpine pipx ставится через pip --user (fallback на --break-system-packages
+# если срабатывает защита PEP 668).
+sudo -u "$REAL_USER" sh -c 'python3 -m pip install --user pipx || python3 -m pip install --user --break-system-packages pipx; python3 -m pipx ensurepath'
+
 echo "=== Базы данных ==="
 sudo apk add sqlite
 sudo apk add postgresql

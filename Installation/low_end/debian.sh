@@ -32,6 +32,11 @@ sudo apt install -y openjdk-21-jdk
 # его не нужно — всю работу с пакетами выполняет uv.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+echo "=== pipx ==="
+sudo apt update
+sudo apt install -y pipx
+sudo -u "$REAL_USER" pipx ensurepath
+
 echo "=== Базы данных ==="
 sudo apt install -y sqlite3
 sudo apt install -y postgresql postgresql-contrib

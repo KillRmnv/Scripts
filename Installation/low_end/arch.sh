@@ -25,6 +25,7 @@ sudo pacman -S --noconfirm python python-pip
 sudo pacman -S --noconfirm jdk-openjdk
 pip install --upgrade pip
 sudo pacman -S --noconfirm uv
+sudo pacman -S --noconfirm python-pipx
 
 echo "=== Базы данных ==="
 sudo pacman -S --noconfirm sqlite
