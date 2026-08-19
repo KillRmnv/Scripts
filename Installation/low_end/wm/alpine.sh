@@ -3,10 +3,18 @@ set -e
 
 echo "=== Установка i3-wm, Polybar, Rofi, Feh, i3lock (Alpine Linux) ==="
 
+# --- ВАЖНО: Подключаем community репозиторий ---
+ALPINE_VER="$(cat /etc/alpine-release | cut -d. -f1,2)"
+COMMUNITY_REPO="http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}/community"
+
+if ! grep -qF "/community" /etc/apk/repositories; then
+    echo "$COMMUNITY_REPO" >> /etc/apk/repositories
+fi
+# -----------------------------------------------
+
 apk update && apk upgrade
 
 # Установка компонентов
-# В Alpine нет i3-gaps, используем обычный i3 (gaps встроены с v4.19)
 apk add \
     i3 \
     polybar \
@@ -22,4 +30,3 @@ apk add \
     font-noto-emoji
 
 echo "Готово! Настройка gaps делается в ~/.config/i3/config"
-echo "Пример: gaps inner 10; gaps outer 5"
