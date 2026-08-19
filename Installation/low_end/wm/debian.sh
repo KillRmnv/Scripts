@@ -7,13 +7,13 @@ sudo apt update && sudo apt upgrade -y
 
 # Установка компонентов
 sudo apt install -y \
-    i3-gaps \
+    i3 \
     polybar \
     rofi \
     feh \
     i3lock \
     picom \
-    dunst \
+    dunst \i3 debian
     xinit \
     xserver-xorg \
     xterm
