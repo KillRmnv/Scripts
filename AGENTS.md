@@ -21,6 +21,7 @@ Run **in order**; later steps depend on earlier ones.
 - Debian/Ubuntu: `debian_based/ubuntu.sh` → optional `debian_based/{gh,fish_ubuntu,jq_ubuntu,wm_de,hyprland}.sh` → `package_managers/install_brew.sh` → `common/language_packages.sh`.
 - `common/` scripts assume pip/npm/cargo already present. Most scripts use `sudo` and `set -e`; run them on a real target system, not as a dry exercise.
 - Docker needs logout/reboot after install for the `docker` group to take effect.
+- `low_end/` is a standalone fallback set (Arch/Debian/Alpine) for when the main system breaks. Each script is self-contained and runs separately (e.g. `sudo bash low_end/arch.sh`); every script auto-calls `external_tools.sh` at the end, so don't run it manually. These are a slimmed-down mirror of `Installation/`, not a sub-step of the main flow.
 
 ## Neovim (JVIM)
 Java-focused config. Plugins managed by Lazy.nvim (auto-install on first launch). Entrypoint `IDE/nvim/init.lua`; plugin specs in `IDE/nvim/lua/io/github/israiloff/config/`. Lua formatter is `stylua` (installed via Mason). See `IDE/nvim/README.md` for keymaps/troubleshooting.
