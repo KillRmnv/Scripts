@@ -32,7 +32,11 @@ sudo apt install -y openjdk-21-jdk
 # Системный pip в Debian защищён PEP 668 (EXTERNALLY-MANAGED); обновлять
 # его не нужно — всю работу с пакетами выполняет uv.
 curl -LsSf https://astral.sh/uv/install.sh | sh
-sudo uv tool install mitmproxy
+# 1. Явно добавляем путь с uv в переменную окружения для текущей сессии
+export PATH="$HOME/.local/bin:$PATH"
+# 2. Так как скрипт запущен от root, sudo здесь не нужен. 
+# Если оставить sudo, он обнулит добавленный нами PATH и выдаст ту же ошибку.
+uv tool install mitmproxy
 echo "=== pipx ==="
 sudo apt update
 sudo apt install -y pipx
