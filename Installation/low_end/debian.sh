@@ -15,7 +15,7 @@ REAL_HOME="$(getent passwd "$REAL_USER" | cut -d: -f6)"
 
 echo "=== Обновление системы ==="
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl wget gpg software-properties-common apt-transport-https ca-certificates
+sudo apt install -y curl wget gpg apt-transport-https ca-certificates
 
 echo "=== Системные утилиты ==="
 sudo apt install -y curl wget gnupg net-tools git build-essential pkg-config libssl-dev openssl tree bat ripgrep fd-find fzf pass jq chafa git-lfs flatpak mitmproxy unzip

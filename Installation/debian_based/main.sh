@@ -2,7 +2,7 @@
 
 # Обновление системы
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y curl wget gpg software-properties-common apt-transport-https
+sudo apt install -y curl wget gpg apt-transport-https
 
 # 1. GIT, C++, PIP, MAVEN, GRADLE
 sudo apt install -y git build-essential python3-pip maven gradle
