@@ -18,7 +18,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y curl wget gpg apt-transport-https ca-certificates
 
 echo "=== Системные утилиты ==="
-sudo apt install -y curl wget gnupg net-tools git build-essential pkg-config libssl-dev openssl tree bat ripgrep fd-find fzf pass jq chafa git-lfs flatpak mitmproxy unzip
+sudo apt install -y curl wget gnupg net-tools git build-essential pkg-config libssl-dev openssl tree bat ripgrep fd-find fzf pass jq chafa git-lfs flatpak  unzip
 
 # Debian поставит bat как batcat и fd-find как fdfind (конфликт имён).
 # Создаём симлинки, чтобы работали привычные команды bat и fd.
@@ -27,6 +27,7 @@ sudo apt install -y curl wget gnupg net-tools git build-essential pkg-config lib
 
 echo "=== Языки и SDK ==="
 sudo apt install -y python3 python3-pip
+sudo pip3 install mitmproxy
 sudo apt install -y openjdk-21-jdk
 # Системный pip в Debian защищён PEP 668 (EXTERNALLY-MANAGED); обновлять
 # его не нужно — всю работу с пакетами выполняет uv.
