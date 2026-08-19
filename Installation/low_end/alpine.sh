@@ -19,19 +19,32 @@ echo "=== Обновление системы ==="
 apk update && apk upgrade
 
 echo "=== Репозитории (community + testing) ==="
-ALPINE_VER="$(cat /etc/alpine-release 2>/dev/null | cut -d. -f1,2)"
+ALPINE_RELEASE="$(cat /etc/alpine-release 2>/dev/null)"
+ALPINE_VER="$(echo "$ALPINE_RELEASE" | cut -d. -f1,2)"
 
-# Добавляем community (основной доп. репо)
+# Определяем, Edge это или стабильная версия
+if echo "$ALPINE_RELEASE" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+-.*-g[0-9a-f]+$'; then
+    # Это Edge — используем edge/ вместо v3.XX/
+    BASE_URL="http://dl-cdn.alpinelinux.org/alpine/edge"
+else
+    # Стабильная версия — используем v3.XX/
+    BASE_URL="http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}"
+fi
+
+COMMUNITY_REPO="${BASE_URL}/community"
+TESTING_REPO="${BASE_URL}/testing"
+
+# Добавляем community
 if ! grep -qF "/community" /etc/apk/repositories; then
-    sed -i "s|/main|/main\nhttp://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}/community|" /etc/apk/repositories
+    sed -i "s|/main|/main\n${COMMUNITY_REPO}|" /etc/apk/repositories
 fi
 
-# Добавляем testing (для некоторых утилит)
+# Добавляем testing
 if ! grep -qF "/testing" /etc/apk/repositories; then
-    echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+    echo "${TESTING_REPO}" >> /etc/apk/repositories
 fi
 
-# ОБЯЗАТЕЛЬНО обновляем индексы после добавления репозиториев!
+# ОБЯЗАТЕЛЬНО обновляем индексы
 apk update
 
 echo "=== Системные утилиты ==="
