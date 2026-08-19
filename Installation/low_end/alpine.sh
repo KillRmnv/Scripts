@@ -20,32 +20,39 @@ apk update && apk upgrade
 
 echo "=== Репозитории (community + testing) ==="
 ALPINE_VER="$(cat /etc/alpine-release 2>/dev/null | cut -d. -f1,2)"
-COMMUNITY_REPO="http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}/community"
-TESTING_REPO="http://dl-cdn.alpinelinux.org/alpine/edge/testing"
-grep -qF "$COMMUNITY_REPO" /etc/apk/repositories || echo "$COMMUNITY_REPO" >> /etc/apk/repositories
-grep -qF "$TESTING_REPO" /etc/apk/repositories || echo "$TESTING_REPO" >> /etc/apk/repositories
+
+# Добавляем community (основной доп. репо)
+if ! grep -qF "/community" /etc/apk/repositories; then
+    sed -i "s|/main|/main\nhttp://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}/community|" /etc/apk/repositories
+fi
+
+# Добавляем testing (для некоторых утилит)
+if ! grep -qF "/testing" /etc/apk/repositories; then
+    echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+fi
+
+# ОБЯЗАТЕЛЬНО обновляем индексы после добавления репозиториев!
 apk update
 
 echo "=== Системные утилиты ==="
-apk add curl wget gnupg net-tools git build-base pkgconf openssl tree bat ripgrep fd fzf pass jq git-lfs flatpak mitmproxy unzip
-apk add chafa
+# Исправленные имена пакетов для Alpine v3.24:
+apk add curl wget gnupg net-tools git build-base pkgconf openssl tree \
+    bat fd fzf pass jq git-lfs flatpak mitmproxy unzip chafa || true
 
 echo "=== Языки и SDK ==="
-apk add python3 py3-pip
-apk add openjdk21
+apk add python3 py3-pip openjdk21
+
 # Системный pip в Alpine защищён PEP 668 (EXTERNALLY-MANAGED); обновлять
 # его не нужно — всю работу с пакетами выполняет uv.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 echo "=== pipx ==="
-# На Alpine pipx ставится через pip --user (fallback на --break-system-packages
-# если срабатывает защита PEP 668).
+# На Alpine pipx ставится через pip --user
 python3 -m pip install --user pipx || python3 -m pip install --user --break-system-packages pipx
 python3 -m pipx ensurepath
 
 echo "=== Базы данных ==="
-apk add sqlite
-apk add postgresql
+apk add sqlite postgresql
 /etc/init.d/postgresql setup 2>/dev/null || true
 rc-update add postgresql default 2>/dev/null || true
 rc-service postgresql start 2>/dev/null || true
@@ -53,9 +60,7 @@ rc-service postgresql start 2>/dev/null || true
 echo "=== Редакторы ==="
 apk add neovim
 # zed: НЕТ пакета для Alpine и готовый бинарь требует glibc -> поставить нельзя.
-# echo "zed недоступен на Alpine (нужен glibc) — пропущен."
 # dbeaver: НЕТ пакета для Alpine (Java GUI) -> ставится через flatpak/flathub
-# вручную: flatpak install flathub com.dbeaver.DBeaverCommunity
 
 echo "=== Терминал и Shell ==="
 apk add fish kitty alacritty
@@ -88,8 +93,6 @@ bash "$SCRIPT_DIR/external_tools.sh"
 
 echo "=== Инструменты вне репозиториев Alpine ==="
 # windscribe: НЕТ пакета для Alpine и готовый бинарь требует glibc -> поставить нельзя.
-# echo "windscribe недоступен на Alpine (нужен glibc) — пропущен."
 # ghgrab-bin: НЕТ пакета для Alpine -> поставить нельзя.
-# echo "ghgrab-bin недоступен на Alpine — пропущен."
 
 echo "Готово! Требуется перезагрузка (для группы docker и оболочки по умолчанию)."
