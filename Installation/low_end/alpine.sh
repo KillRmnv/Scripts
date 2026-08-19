@@ -2,7 +2,8 @@
 
 # Fallback install for Alpine Linux 3.23 (weak/replacement machine).
 # Run as root: bash alpine.sh
-
+sed -i '/\/testing/d' /etc/apk/repositories
+apk update
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
