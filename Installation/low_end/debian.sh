@@ -27,7 +27,7 @@ sudo apt install -y curl wget gnupg net-tools git build-essential pkg-config lib
 
 echo "=== Языки и SDK ==="
 sudo apt install -y python3 python3-pip
-sudo pip3 install mitmproxy
+sudo apt install python3-mitmproxy
 sudo apt install -y openjdk-21-jdk
 # Системный pip в Debian защищён PEP 668 (EXTERNALLY-MANAGED); обновлять
 # его не нужно — всю работу с пакетами выполняет uv.
