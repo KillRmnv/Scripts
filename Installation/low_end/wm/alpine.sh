@@ -3,10 +3,10 @@ set -e
 
 echo "=== Установка i3, Polybar, Rofi, Feh, i3lock (Alpine Linux) ==="
 
-sudo apk update && sudo apk upgrade
+ apk update &&  apk upgrade
 
 # Установка компонентов
-sudo apk add \
+ apk add \
     i3 \
     polybar \
     rofi \
@@ -19,6 +19,6 @@ sudo apk add \
     xterm
 
 # Шрифты
-sudo apk add font-awesome font-noto-emoji
+ apk add font-awesome font-noto-emoji
 
 echo "Готово! В Alpine обычно используют startx. Добавьте 'exec i3' в ~/.xinitrc"
