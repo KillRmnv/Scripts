@@ -14,40 +14,33 @@ REAL_HOME="$(getent passwd "$REAL_USER" | cut -d: -f6)"
 echo "=== Обновление системы ==="
 apk update && apk upgrade
 
-echo "=== Репозитории (community + testing) ==="
+echo "=== Репозитории (community) ==="
 ALPINE_VER="$(cat /etc/alpine-release | cut -d. -f1,2)"
 COMMUNITY_REPO="http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}/community"
-TESTING_REPO="http://dl-cdn.alpinelinux.org/alpine/v${ALPINE_VER}/testing"
 
 # Добавляем community, если его нет
 if ! grep -qF "/community" /etc/apk/repositories; then
-    # Добавляем после строки с /main
     sed -i "/\/main/a ${COMMUNITY_REPO}" /etc/apk/repositories
 fi
 
-# Добавляем testing, если его нет
-if ! grep -qF "/testing" /etc/apk/repositories; then
-    echo "${TESTING_REPO}" >> /etc/apk/repositories
-fi
-
 # КРИТИЧЕСКИ ВАЖНО: обновляем индексы после изменения repos
+# testing убран, так как в stable ветках он часто отсутствует (404)
 apk update
 
 echo "=== Системные утилиты ==="
-# В Alpine 3.23 эти пакеты лежат в community. 
-# Используем || true, чтобы не прерывать скрипт при отсутствии одного пакета.
+# || true защищает от падения скрипта, если какой-то пакет недоступен
 apk add curl wget gnupg net-tools git build-base pkgconf openssl tree \
     bat fd fzf pass jq git-lfs flatpak mitmproxy unzip chafa || true
 
 echo "=== Языки и SDK ==="
-apk add python3 py3-pip openjdk21-jdk
+apk add python3 py3-pip openjdk21-jdk || echo "WARNING: openjdk21-jdk not found, trying openjdk17..." && apk add openjdk17-jdk || true
 
 # uv installer
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 echo "=== pipx ==="
 python3 -m pip install --user pipx || python3 -m pip install --user --break-system-packages pipx
-python3 -m pipx ensurepath
+python3 -m pipx ensurepath || true
 
 echo "=== Базы данных ==="
 apk add sqlite postgresql
@@ -59,14 +52,17 @@ echo "=== Редакторы ==="
 apk add neovim
 
 echo "=== Терминал и Shell ==="
-apk add fish kitty alacritty
+apk add fish kitty alacritty || true
 
 echo "=== Nerd Font ==="
 mkdir -p "$REAL_HOME/.local/share/fonts"
 cd /tmp
-wget -O JetBrainsMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"
-unzip -o JetBrainsMono.zip -d "$REAL_HOME/.local/share/fonts/" || true
-rm -f JetBrainsMono.zip
+if wget -O JetBrainsMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip"; then
+    unzip -o JetBrainsMono.zip -d "$REAL_HOME/.local/share/fonts/" || true
+    rm -f JetBrainsMono.zip
+else
+    echo "WARNING: Failed to download fonts"
+fi
 fc-cache -f 2>/dev/null || true
 cd "$SCRIPT_DIR"
 
@@ -77,12 +73,15 @@ rc-service docker start
 addgroup "$REAL_USER" docker
 
 echo "=== Утилиты разработки ==="
-apk add btop lazygit zoxide github-cli
+apk add btop lazygit zoxide github-cli || true
 
 echo "=== Настройка Fish ==="
-which fish
-echo "/usr/bin/fish" | tee -a /etc/shells
-chsh -s /usr/bin/fish "$REAL_USER" || true
+if command -v fish &> /dev/null; then
+    echo "/usr/bin/fish" | tee -a /etc/shells
+    chsh -s /usr/bin/fish "$REAL_USER" || true
+else
+    echo "WARNING: fish not installed, skipping shell config"
+fi
 
 echo "=== Внешние инструменты ==="
 if [ -f "$SCRIPT_DIR/external_tools.sh" ]; then
