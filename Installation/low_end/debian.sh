@@ -126,5 +126,5 @@ fi
 if ! command -v ghgrab &> /dev/null; then
     echo "ghgrab-bin недоступен через apt; установите вручную из релиза GitHub (https://github.com/.../ghgrab)."
 fi
-
+sudo apt install -y xorg dmenu awesome maim xclip
 echo "Готово! Требуется перезагрузка (для группы docker и оболочки по умолчанию)."

@@ -20,6 +20,7 @@ sudo pacman -Syu --noconfirm
 echo "=== Системные утилиты ==="
 sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree bat ripgrep fd fzf pass jq chafa git-lfs flatpak mitmproxy unzip
 
+sudo pacman -S --noconfirm xorg-server dmenu awesome maim xclip
 echo "=== Языки и SDK ==="
 sudo pacman -S --noconfirm python python-pip
 sudo pacman -S --noconfirm jdk-openjdk
