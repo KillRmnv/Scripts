@@ -21,10 +21,11 @@ sudo xbps-install -Sy --yes curl wget gnupg net-tools git base-devel pkgconf ope
 echo "=== Языки и SDK ==="
 sudo xbps-install -Sy --yes python3 python3-pip
 sudo xbps-install -Sy --yes openjdk17
-sudo pip3 install --upgrade pip
-# uv не в репозитории Void, устанавливаем через curl
-curl -LsSf https://astral.sh/uv/install.sh | sh
 sudo xbps-install -Sy --yes python3-pipx
+sudo pipx ensurepath
+
+# Устанавливаем uv через pipx (рекомендуемый способ)
+sudo -u "$REAL_USER" pipx install uv
 
 echo "=== Базы данных ==="
 sudo xbps-install -Sy --yes sqlite
