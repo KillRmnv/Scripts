@@ -31,7 +31,7 @@ echo "=== Базы данных ==="
 sudo xbps-install -Sy --yes sqlite
 sudo xbps-install -Sy --yes postgresql
 # В Void нужно инициализировать БД вручную
-# 
+#
 # Создаем каталог от root
 sudo mkdir -p /var/lib/postgres
 # Меняем владельца на postgres
@@ -48,7 +48,7 @@ echo "=== Редакторы ==="
 sudo xbps-install -Sy --yes neovim
 
 echo "=== Терминал и Shell ==="
-sudo xbps-install -Sy --yes fish kitty alacritty
+sudo xbps-install -Sy --yes fish-shell kitty alacritty
 sudo xbps-install -Sy --yes font-jetbrains-mono
 
 echo "=== Docker ==="
