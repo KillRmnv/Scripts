@@ -23,7 +23,7 @@ sudo xbps-install -Sy --yes python3 python3-pip
 sudo xbps-install -Sy --yes openjdk17
 sudo xbps-install -Sy --yes python3-pipx
 sudo pipx ensurepath
-
+sudo xbps-install -S --yes uv
 # Устанавливаем uv через pipx (рекомендуемый способ)
 sudo -u "$REAL_USER" pipx install uv
 
@@ -50,6 +50,7 @@ sudo xbps-install -Sy --yes neovim
 echo "=== Терминал и Shell ==="
 sudo xbps-install -Sy --yes fish-shell kitty alacritty
 sudo xbps-install -Sy --yes font-jetbrains-mono
+sudo xbps-install -S --yes xorg-server dmenu awesome xbps-install maim xclip
 
 echo "=== Docker ==="
 sudo xbps-install -Sy --yes docker docker-compose
@@ -71,9 +72,5 @@ fi
 
 echo "=== AUR-подобные пакеты (установка из исходников) ==="
 sudo xbps-install -Sy --yes dbeaver
-
-echo "=== Дополнительные пакеты из репозиториев ==="
-# Некоторые полезные пакеты, которых не было в основном списке
-sudo xbps-install -Sy --yes htop tmux xclip
 
 echo "Готово! Требуется перезагрузка (для группы docker и оболочки по умолчанию)."
