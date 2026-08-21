@@ -31,6 +31,13 @@ echo "=== Базы данных ==="
 sudo xbps-install -Sy --yes sqlite
 sudo xbps-install -Sy --yes postgresql
 # В Void нужно инициализировать БД вручную
+# 
+# Создаем каталог от root
+sudo mkdir -p /var/lib/postgres
+# Меняем владельца на postgres
+sudo chown postgres:postgres /var/lib/postgres
+# Устанавливаем правильные права
+sudo chmod 700 /var/lib/postgres
 if [ ! -d /var/lib/postgres/data ]; then
     sudo -u postgres initdb -D /var/lib/postgres/data
 fi
