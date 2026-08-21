@@ -26,7 +26,7 @@ echo "=== Базы данных ==="
 sudo pacman -S --noconfirm postgresql dbeaver
 
 echo "=== Редакторы и IDE ==="
-sudo pacman -S --noconfirm neovim zed obsidian texlive-meta
+sudo pacman -S --noconfirm neovim obsidian texlive-meta
 
 echo "=== Терминал и Shell ==="
 sudo pacman -S --noconfirm fish starship kitty
@@ -45,9 +45,6 @@ echo "=== Шрифты ==="
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd
 
 echo "=== Рабочий стол ==="
-# sudo pacman -S --noconfirm niri cachyos-niri-settings
-# sudo pacman -S --noconfirm hyprland
-curl -fsSL https://install.danklinux.com | sh
 sudo pacman -S adw-gtk-theme
 
 echo "=== Screen recording packages ==z="
@@ -65,9 +62,6 @@ chsh -s /usr/bin/fish
 echo "=== Настройка Fisher ==="
 fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
 
-# Скачать git.fish от bobthecow и положить в completions
-curl -o ~/.config/fish/completions/git.fish \
-  https://raw.githubusercontent.com/bobthecow/git-flow-completion/master/git.fish
 echo "Готово! Требуется перезагрузка."
 
 sudo pacman -S waypaper

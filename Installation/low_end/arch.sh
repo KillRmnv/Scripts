@@ -33,8 +33,8 @@ sudo pacman -S --noconfirm postgresql
 sudo systemctl enable --now postgresql
 
 echo "=== Редакторы ==="
-sudo pacman -S --noconfirm neovim zed
-
+sudo pacman -S --noconfirm neovim
+curl -f https://zed.dev/install.sh | sh
 echo "=== Терминал и Shell ==="
 sudo pacman -S --noconfirm fish kitty alacritty
 sudo pacman -S --noconfirm ttf-jetbrains-mono-nerd

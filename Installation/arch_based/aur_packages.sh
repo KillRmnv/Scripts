@@ -18,9 +18,6 @@ echo "=== Установка AUR пакетов ==="
 echo "=== Базы данных ==="
 yay -S --noconfirm pgadmin4
 
-# echo "=== Терминалы ==="
-# yay -S --noconfirm warp-terminal-bin
-
 echo "=== Утилиты ==="
 yay -S --noconfirm oxker-bin
 
@@ -29,9 +26,6 @@ yay -S --noconfirm mpvpaper
 
 echo "=== Браузеры ==="
 yay -S --noconfirm google-chrome
-
-echo "=== LM Studio ==="
-yay -S lmstudio-bin
 
 echo "=== Windscribe ==="
 yay -S windscribe-cli-v2-bin
@@ -43,5 +37,5 @@ yay -S ghgrab-bin
 echo "=== Wallpaper Engine ==="
 yay -S linux-wallpaperengine-git
 
-# yay -S hydra-launcher-bin
+paru -S toofan-bin
 echo "Готово!"

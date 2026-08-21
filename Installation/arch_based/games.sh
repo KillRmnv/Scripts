@@ -3,6 +3,7 @@
 set -e
 
 echo "=== AMD GPU драйверы (Mesa/Vulkan, уже могут быть) ==="
+
 sudo pacman -S --noconfirm \
   mesa lib32-mesa \
   vulkan-radeon lib32-vulkan-radeon \
@@ -16,7 +17,7 @@ echo "=== Wine и совместимость ==="
 sudo pacman -S --noconfirm \
   wine-staging winetricks \
   lib32-pipewire lib32-alsa-plugins \
-  lib32-libpulse lib32-openal
+  lib32-libpulse 
 
 echo "=== Steam ==="
 sudo pacman -S --noconfirm steam

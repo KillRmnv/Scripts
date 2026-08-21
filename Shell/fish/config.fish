@@ -23,9 +23,6 @@ alias grep='grep --color=auto'
 # ───────────────────────────────────────────────────────────
 # 📦 Кастомные алиасы
 # ───────────────────────────────────────────────────────────
-alias oencode='~/.opencode/bin/opencode'
-alias qwen='~/.npm-global/bin/qwen'
-alias vibe='~/.local/bin/vibe'
 alias zed='~/.local/bin/zed'
 
 
@@ -77,11 +74,7 @@ end
 
 # 🔹 Централизованный PATH
 fish_add_path -g $HOME/bin $HOME/.local/bin
-
-# ───────────────────────────────────────────────────────────
-# ⭐ Starship (раскомментируйте, если используете его)
-# ───────────────────────────────────────────────────────────
-starship init fish | source
+zoxide init fish | source
 
 # ───────────────────────────────────────────────────────────
 # 🎨 Цвета подсветки (Catppuccin Mocha)
@@ -93,7 +86,12 @@ set -g fish_color_string '#a6e3a1'
 set -g fish_color_error '#f38ba8'
 set -g fish_color_cwd '#94e2d5'
 
+function fish_greeting
+    printf '%s\n' \
+        '               O  o' \
+        '          _\_   o' \
+        ">(\'>   \\\\/  o\\ ."\
+        '       //\___='    \
+        "          ''" \
 
-
-
-
+end

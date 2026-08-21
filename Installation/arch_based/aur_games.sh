@@ -13,7 +13,7 @@ yay -S proton-cachyos-slr
 echo "=== Heroic Games Launcher (Epic + GOG + Amazon) ==="
 yay -S --noconfirm heroic-games-launcher
 
-echo "=== Eden — Nintendo Switch эмулятор ==="
+# echo "=== Eden — Nintendo Switch эмулятор ==="
 # eden-nightly-bin — PGO-оптимизированная nightly сборка (рекомендуется)
 # yay -S --noconfirm eden-nightly-bin
 

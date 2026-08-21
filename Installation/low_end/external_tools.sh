@@ -26,5 +26,7 @@ curl -fsSL https://pi.dev/install.sh | sh
 
 echo "=== Fresh (текстовый редактор) ==="
 curl https://raw.githubusercontent.com/sinelaw/fresh/refs/heads/master/scripts/install.sh | sh
+echo "=== ZED (текстовый редактор) ==="
+curl -f https://zed.dev/install.sh | sh
 
 echo "Готово! Внешние инструменты установлены."
