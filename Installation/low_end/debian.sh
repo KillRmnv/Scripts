@@ -20,6 +20,9 @@ sudo apt install -y curl wget gpg apt-transport-https ca-certificates
 echo "=== Системные утилиты ==="
 sudo apt install -y curl wget gnupg net-tools git build-essential pkg-config libssl-dev openssl tree bat ripgrep fd-find fzf pass jq chafa git-lfs flatpak  unzip
 
+curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null
+echo 'deb [signed-by=/usr/share/keyrings/yazi-keyring.gpg] https://yazi-rs.github.io/builds/ stable main' | sudo tee /etc/apt/sources.list.d/yazi.list >/dev/null
+sudo apt update && sudo apt install yazi
 # Debian поставит bat как batcat и fd-find как fdfind (конфликт имён).
 # Создаём симлинки, чтобы работали привычные команды bat и fd.
 [ -x /usr/bin/batcat ] && [ ! -e /usr/local/bin/bat ] && ln -s /usr/bin/batcat /usr/local/bin/bat

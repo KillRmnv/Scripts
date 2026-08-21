@@ -161,10 +161,6 @@ sudo apt install flatpak
 sudo apt install gnome-software-plugin-flatpak
 fish_add_path -g ~/.npm-global/bin
 exec fish
-#cline
-npm install -g cline
-#kilocode
-npm install -g @kilocode/cli
 
 sudo apt install net-tools
 
@@ -173,10 +169,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 sudo apt install git-lfs
 git lfs install
 
-
 sudo apt update
 sudo apt install -y mpv libmpv-dev meson ninja-build gcc git pkg-config libwayland-dev wayland-protocols libpipewire-0.3-dev libsystemd-dev
-
 
 git clone --single-branch https://github.com/GhostNaN/mpvpaper
 # Build

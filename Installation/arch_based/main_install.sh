@@ -7,10 +7,9 @@ set -e
 
 echo "=== Обновление системы ==="
 sudo pacman -Syu --noconfirm
-sudo pacman -S octopi
 echo "=== Системные утилиты ==="
 sudo pacman -S --noconfirm curl wget gnupg net-tools git base-devel pkgconf openssl tree chafa bat ripgrep fd fzf pass jq git-lfs flatpak
-
+sudo pacman -S --noconfirm yazi ffmpeg 7zip  poppler zoxide resvg ImageMagick
 echo "=== Разработка: Языки и SDK ==="
 sudo pacman -S --noconfirm python python-pip python-virtualenv
 sudo pacman -S --noconfirm jdk21-openjdk jdk-openjdk
@@ -32,7 +31,7 @@ echo "=== Терминал и Shell ==="
 sudo pacman -S --noconfirm fish starship kitty
 
 echo "=== Утилиты разработки и мониторинга ==="
-sudo pacman -S --noconfirm docker docker-compose btop lazygit superfile tealdeer zoxide dust github-cli
+sudo pacman -S --noconfirm docker docker-compose btop lazygit tealdeer dust github-cli
 
 echo "=== AI и ML (uv, opencode) ==="
 sudo pacman -S --noconfirm uv opencode

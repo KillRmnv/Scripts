@@ -18,8 +18,6 @@ fi
 echo "=== Posting (через uv) ==="
 uv tool install --python 3.13 posting || uv tool install posting
 
-echo "=== Superfile (TUI файловый менеджер) ==="
-bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
 
 echo "=== Pi (coding agent) ==="
 curl -fsSL https://pi.dev/install.sh | sh

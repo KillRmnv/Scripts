@@ -17,7 +17,7 @@ sudo xbps-install -Su --yes
 
 echo "=== Системные утилиты ==="
 sudo xbps-install -Sy --yes curl wget gnupg net-tools git base-devel pkgconf openssl tree bat ripgrep fd fzf pass jq unzip xtools
-
+sudo xbps-install -S --yes yazi ffmpeg 7zip  poppler zoxide resvg ImageMagick
 echo "=== Языки и SDK ==="
 sudo xbps-install -Sy --yes python3 python3-pip
 sudo xbps-install -Sy --yes openjdk17

@@ -5,10 +5,6 @@
 
 set -e
 
-echo "=== NPM глобальные пакеты ==="
-sudo npm install -g cline
-sudo npm install -g @kilocode/cli
-
 echo "=== Установка Posting через uv ==="
 uv tool install --python 3.13 posting
 

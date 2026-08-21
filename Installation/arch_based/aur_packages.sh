@@ -36,6 +36,6 @@ yay -S ghgrab-bin
 
 echo "=== Wallpaper Engine ==="
 yay -S linux-wallpaperengine-git
-
+yay -S lazysql
 paru -S toofan-bin
 echo "Готово!"
